@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+:root {
+  --fuente-titulos: Arial;
+  --fuente-subtitulos: "Roboto Slab";
+  --fuente-botones: "Helvetica Neue";
+  --fuente-texto: "Roboto Slab";
+}
+
+h1 {
+  font-family: var(--fuente-titulos);
+}
+
+h2 {
+  font-family: var(--fuente-subtitulos);
+}
+
+button {
+  font-family: var(--fuente-botones);
+}
+
+p {
+  font-family: var(--fuente-texto);
+}
