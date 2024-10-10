@@ -2,17 +2,54 @@
   align-items: center;
   background-color: var(--azul-poli);
   display: flex;
-  justify-content: space-between;
-}
-
-#navbar-principal a {
-  align-items: center;
-  color: white;
-  font-family: var(--fuente-botones);
-  margin: 0px 25px;
-  text-decoration: none;
+  justify-content: space-evenly;
 }
 
 #logo-navbar {
-  height: 75px;
+  height: 90px;
+}
+
+.seccion-navbar-principal {
+  color: white;
+  font-family: var(--fuente-botones);
+  font-size: 20px;
+  padding: 7.5px 0px;
+  position: relative;
+  text-decoration: none;
+}
+
+.seccion-navbar-principal::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background-color: transparent;
+}
+
+.seccion-navbar-principal:hover {
+  color: var(--amarillo-poli);
+}
+
+.seccion-navbar-principal:hover::after {
+  background-color: var(--amarillo-poli);
+}
+
+#seccion-login {
+  color: white;
+  font-family: var(--fuente-texto);
+  font-size: 15px;
+}
+
+#seccion-login:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+#boton-login {
+  display: block;
+  height: 40px;
+  margin: 0 auto;
+  max-width: 100%;
 }

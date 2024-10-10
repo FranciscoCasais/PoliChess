@@ -5,27 +5,11 @@
 }
 
 :root {
-  --amarillo-poli: #FFCB00;
+  --amarillo-poli: #FFCB00; 
   --azul-poli: #155A9E;
-  --fuente-logo: "LM Roman Caps 10", sans-serif;
   --fuente-titulos: Arial;
   --fuente-subtitulos: "Roboto Slab";
   --fuente-botones: "Helvetica Neue";
   --fuente-texto: "Roboto Slab";
-}
-
-h1 {
-  font-family: var(--fuente-titulos);
-}
-
-h2 {
-  font-family: var(--fuente-subtitulos);
-}
-
-button {
-  font-family: var(--fuente-botones);
-}
-
-p {
-  font-family: var(--fuente-texto);
+  --resaltado-sobre-azul: #326ba5;
 }

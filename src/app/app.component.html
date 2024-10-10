@@ -3,9 +3,17 @@
     <a [routerLink]="['/']">
       <img id="logo-navbar" src="assets/logonavbar.png">
     </a>
-    <a [routerLink]="['/']">NOTICIAS</a>
-    <a [routerLink]="['/']">RANKINGS</a>
-    <a [routerLink]="['/']">TORNEOS</a>
-    <a [routerLink]="['/']">CALENDARIO</a>
+    <a class="seccion-navbar-principal" [routerLink]="['/']">NOTICIAS</a>
+    <a class="seccion-navbar-principal" [routerLink]="['/']">RANKINGS</a>
+    <a class="seccion-navbar-principal" [routerLink]="['/']">TORNEOS</a>
+    <a class="seccion-navbar-principal" [routerLink]="['/']">CALENDARIO</a>
+    <a id="seccion-login">
+      <div>
+        <img id="boton-login" src="assets/botonlogin.png">
+      </div>
+      <p id="texto-login">
+        Iniciar sesión
+      </p>
+    </a>
   </nav>
 </section>
