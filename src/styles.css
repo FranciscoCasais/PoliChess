@@ -5,6 +5,9 @@
 }
 
 :root {
+  --amarillo-poli: #FFCB00;
+  --azul-poli: #155A9E;
+  --fuente-logo: "LM Roman Caps 10", sans-serif;
   --fuente-titulos: Arial;
   --fuente-subtitulos: "Roboto Slab";
   --fuente-botones: "Helvetica Neue";

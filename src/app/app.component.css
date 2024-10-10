@@ -1,0 +1,18 @@
+#navbar-principal {
+  align-items: center;
+  background-color: var(--azul-poli);
+  display: flex;
+  justify-content: space-between;
+}
+
+#navbar-principal a {
+  align-items: center;
+  color: white;
+  font-family: var(--fuente-botones);
+  margin: 0px 25px;
+  text-decoration: none;
+}
+
+#logo-navbar {
+  height: 75px;
+}
