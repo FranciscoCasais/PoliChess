@@ -1,0 +1,28 @@
+#seccion-bienvenida {
+    align-items: center;
+    display: flex;
+    height: 75vh;
+    justify-content: space-evenly;
+    padding: 0 10%;
+}
+
+#logo-polichess {
+    height: 70%;
+    width: auto;
+}
+
+#texto-bienvenida {
+    margin-left: 5%;
+}
+
+#texto-bienvenida h1 {
+    font-family: var(--fuente-titulos);
+    font-size: 600%;
+    font-weight: bold;
+}
+
+#texto-bienvenida h2 {
+    font-family: var(--fuente-subtitulos);
+    font-size: 300%;
+    font-weight: lighter;
+}

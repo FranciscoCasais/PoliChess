@@ -13,3 +13,8 @@
   --fuente-texto: "Roboto Slab";
   --resaltado-sobre-azul: #326ba5;
 }
+
+body {
+  background-image: url("assets/fondopolichess.png");
+  background-repeat: repeat;
+}
