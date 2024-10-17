@@ -6,7 +6,8 @@
 }
 
 #logo-navbar {
-  height: 90px;
+  height: 12.5vh;
+  transition: height 0.3s;
 }
 
 .seccion-navbar-principal {
