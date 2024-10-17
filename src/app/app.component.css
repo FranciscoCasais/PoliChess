@@ -55,38 +55,20 @@
   max-width: 100%;
 }
 
-#seccion-login {
-  color: white;
-  font-family: var(--fuente-texto);
-  font-size: 15px;
-}
-
-#seccion-login:hover {
-  cursor: pointer;
-  text-decoration: underline;
-}
-
-#boton-login {
-  display: block;
-  height: 40px;
-  margin: 0 auto;
-  max-width: 100%;
-}
-
 /* Estilo general del enlace del login */
 .login-link {
   color: #1d3557;
   font-weight: 600;
   cursor: pointer;
   transition: color 0.3s ease;
-  }
-  
-  .login-link:hover {
+}
+
+.login-link:hover {
   color: #ffcc00; /* Cambia a amarillo al hacer hover */
-  }
-  
-  /* Estilo del overlay */
-  .login-overlay {
+}
+
+/* Estilo del overlay */
+.login-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -97,130 +79,124 @@
   justify-content: center;
   align-items: center;
   visibility: hidden;
+  opacity: 0; /* Añadir opacidad inicial */
   transition: visibility 0.3s ease, opacity 0.3s ease;
-  }
-  
-  .login-overlay.visible {
+}
+
+.login-overlay.visible {
   visibility: visible;
-  opacity: 1;
-  }
-  
-  /* 
-  .login-container {
+  opacity: 1; /* Cambia a opaco cuando es visible */
+}
+
+/* Diseño del popup */
+.login-container {
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  max-width: 900px;
-  padding: 20px;
-  background: #f1faee; Fondo blanco con tono azulado 
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  position: relative;
-  }
-  
-  /* Diseño asimétrico del popup */
-  .login-dialog {
-  width: 400px;
-  margin: 0 20px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /* Asegura que los formularios se apilen verticalmente */
+  padding: 20px; /* Añadir padding alrededor del contenedor */
+}
+
+.login-dialog {
+  width: 100%;
+  max-width: 450px; /* Aumentar el tamaño máximo */
+  background: #a8dadc; /* Fondo claro */
   border: 2px solid #457b9d; /* Borde azul */
   border-radius: 12px;
-  background: #a8dadc; /* Fondo claro */
-  padding: 25px;
-  position: relative;
+  padding: 30px; /* Aumentar el padding para más espacio */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Sombra para destacar */
+  transform: scale(0.8); /* Inicialmente más pequeño */
+  opacity: 0; /* Comienza invisible */
   transition: transform 0.3s ease, opacity 0.3s ease;
-  }
-  
-  .login-dialog h2 {
+}
+
+.login-overlay.visible .login-dialog {
+  transform: scale(1); /* Escala a su tamaño normal */
+  opacity: 1; /* Aumenta la opacidad */
+}
+
+.login-dialog h2 {
   text-align: left;
   color: #1d3557; /* Azul oscuro */
-  font-size: 24px;
-  }
-  
-  .form-content {
-  margin-top: 15px;
-  }
-  
-  .form-group {
-  margin-bottom: 15px;
-  }
-  
-  .form-row {
+  font-size: 26px; /* Aumentar el tamaño del título */
+  margin-bottom: 20px; /* Espacio adicional debajo del título */
+}
+
+.form-content {
+  margin-top: 20px; /* Aumentar el margen superior */
+}
+
+.form-group {
+  margin-bottom: 20px; /* Aumentar el margen entre grupos */
+  margin-right: 15px; /* Añadir margen derecho para evitar que se sienta pegado */
+}
+
+.form-row {
   display: flex;
   justify-content: space-between;
-  }
-  
-  .form-group label {
+}
+
+.form-group label {
   display: block;
   font-weight: bold;
   color: #1d3557; /* Azul */
-  }
-  
-  .form-input {
-  width: calc(100% - 20px);
-  padding: 10px;
+}
+
+.form-input {
+  width: 100%; /* Asegúrate de que el input ocupe todo el ancho disponible */
+  padding: 12px; /* Aumentar el padding para más comodidad */
   border: 1px solid #457b9d;
   border-radius: 4px;
   margin-top: 5px;
-  }
-  
-  /* Estilo para botones */
-  .button-group {
+}
+
+/* Estilo para botones */
+.button-group {
   display: flex;
   justify-content: space-between;
-  }
-  
-  .btn {
+}
+
+.btn {
   padding: 12px 18px;
   border: none;
   cursor: pointer;
   font-weight: bold;
   border-radius: 8px;
   transition: background 0.3s ease;
-  }
-  
-  
-  .btn-submit {
+}
+
+.btn-submit {
   background: #1d3557; /* Azul */
   color: #f1faee; /* Blanco */
-  }
-  
-  .btn:hover {
+}
+
+.btn:hover {
   background: #ffaa00; /* Amarillo más oscuro para cerrar */
-  }
-  
-  /* Switch entre formularios */
-  .switch-container {
+}
+
+/* Switch entre formularios */
+.switch-container {
   text-align: center;
   margin-top: 20px;
   border-top: 2px dashed #457b9d;
   padding-top: 15px;
-  }
-  
-  .switch-container p {
+}
+
+.switch-container p {
   margin: 0;
   font-size: 16px;
   color: #1d3557;
-  }
-  
-  .switch-link {
+}
+
+.switch-link {
   display: inline-block;
   margin-top: 5px;
   color: #1D3557;
   text-decoration: none;
   font-weight: bold;
-  }
-  
-  .switch-link:hover {
+}
+
+.switch-link:hover {
   color: #ffaa00;
   text-decoration: underline;
-  }
-  
-  /* Efecto de movimiento en el popup */
-  .login-dialog.login-form {
-  transform: translateX(-50px);
-  }
-  
-  .login-dialog.register-form {
-  transform: translateX(50px);
-  }
+}
