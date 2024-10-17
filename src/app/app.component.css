@@ -1,6 +1,7 @@
 #navbar-principal {
   align-items: center;
-  background-color: var(--gris-oscuro);
+  background-color: var(--azul-poli);
+  /*background-color: var(--gris-oscuro);*/
   display: flex;
   justify-content: space-evenly;
   position: fixed;
