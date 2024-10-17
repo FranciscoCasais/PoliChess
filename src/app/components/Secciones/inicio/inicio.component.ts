@@ -7,8 +7,12 @@ import { Component } from '@angular/core';
   templateUrl: './inicio.component.html',
   styleUrl: './inicio.component.css'
 })
+
 export class InicioComponent {
   public scrollear() {
-    document.getElementById("noticias")?.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById("noticias")?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
   }
 }

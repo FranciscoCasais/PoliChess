@@ -1,5 +1,5 @@
 #contenedor-principal {
-  height: 87.5vh;
+  height: 100vh;
 }
 
 #seccion-bienvenida {
@@ -7,7 +7,7 @@
   display: flex;
   height: 75vh;
   justify-content: space-evenly;
-  padding: 0 10%;
+  padding: 6% 10% 0 10%;
 }
 
 #logo-polichess {
@@ -39,14 +39,12 @@
 }
 
 #ver-mas {
-  align-items: center;
   background-color: var(--azul-poli);
   border-radius: 5px;
   color: white;
   font-family: var(--fuente-botones);
   font-size: 17.5px;
   font-weight: bolder;
-  justify-content: center;
   padding: 20px;
 }
 
@@ -56,5 +54,5 @@
 }
 
 #noticias {
-  margin-bottom: 1000px;
+  margin-bottom: 1000px; /* Cambiar después cuando haya más contenido en la página */
 }

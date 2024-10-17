@@ -4,10 +4,11 @@ import { SeccionNoticiasComponent } from "./components/Secciones/seccion-noticia
 import { SeccionCalendarioComponent } from './components/Secciones/seccion-calendario/seccion-calendario.component';
 import { SeccionTorneosComponent } from './components/Secciones/seccion-torneos/seccion-torneos.component';
 import { SeccionJugadoresComponent } from './components/Secciones/seccion-jugadores/seccion-jugadores.component';
+
 export const routes: Routes = [
     {
         path: "",
-        redirectTo: "/inicio",
+        redirectTo: "inicio",
         pathMatch: "full"
     },
     {

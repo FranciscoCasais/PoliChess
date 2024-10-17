@@ -1,13 +1,13 @@
 <header>
-  <nav id="navbar-principal">
-    <a [routerLink]="['/']">
-      <img id="logo-navbar" src="assets/logonavbar.png">
+  <nav id="navbar-principal" class="transparente">
+    <a [routerLink]="['']">
+      <img id="logo-navbar" class="no-achicado" src="assets/logonavbar.png">
     </a>
-    <a class="seccion-navbar-principal" [routerLink]="['/noticias']">NOTICIAS</a>
-    <a class="seccion-navbar-principal" [routerLink]="['/jugadores']">RANKINGS</a>
-    <a class="seccion-navbar-principal" [routerLink]="['/torneos']">TORNEOS</a>
-    <a class="seccion-navbar-principal" [routerLink]="['/calendario']">CALENDARIO</a>
-    <a id="seccion-login" (click)="openLogin()">
+    <a class="seccion-navbar-principal" [routerLink]="['noticias']">NOTICIAS</a>
+    <a class="seccion-navbar-principal" [routerLink]="['jugadores']">RANKING</a>
+    <a class="seccion-navbar-principal" [routerLink]="['torneos']">TORNEOS</a>
+    <a class="seccion-navbar-principal" [routerLink]="['calendario']">CALENDARIO</a>
+    <a id="seccion-login" (click)="openLogin()"> <!-- CAMBIAR EL NOMBRE DE LAS FUNCIONES -->
       <div>
         <img id="boton-login" src="assets/botonlogin.png">
       </div>
@@ -15,6 +15,10 @@
     </a>
   </nav>
 </header>
+
+
+<!-- REVISAR TODO ESTO -->
+
 <!-- Popup de Login/Registro -->
 <div class="login-overlay" [class.visible]="isOverlayVisible" (click)="closeLoginOverlay($event)">
   <div class="login-container" (click)="$event.stopPropagation()">
