@@ -8,11 +8,16 @@
   --amarillo-poli: #FFCB00; 
   --azul-poli: #155A9E;
   --azul-poli-hover: #114a83;
+  --gris-oscuro: #4b4b4b;
   --fuente-titulos: Arial;
   --fuente-subtitulos: "Roboto Slab";
   --fuente-botones: "Helvetica Neue";
   --fuente-texto: "Roboto Slab";
   --resaltado-sobre-azul: #326ba5;
+}
+
+html {
+  scroll-padding-top: 70px;
 }
 
 body {

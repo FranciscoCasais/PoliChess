@@ -1,5 +1,5 @@
 #contenedor-principal {
-  height: 87.5vh;
+  height: 100vh;
 }
 
 #seccion-bienvenida {
@@ -7,7 +7,7 @@
   display: flex;
   height: 75vh;
   justify-content: space-evenly;
-  padding: 0 10%;
+  padding: 6% 10% 0 10%;
 }
 
 #logo-polichess {

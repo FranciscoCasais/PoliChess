@@ -1,19 +1,34 @@
 #navbar-principal {
   align-items: center;
-  background-color: var(--azul-poli);
+  background-color: var(--gris-oscuro);
   display: flex;
   justify-content: space-evenly;
+  position: fixed;
+  transition: opacity 0.3s;
+  width: 100vw;
+}
+
+.transparente {
+  opacity: 0.85;
 }
 
 #logo-navbar {
-  height: 12.5vh;
   transition: height 0.3s;
+}
+
+.no-achicado {
+  height: 90px;
+}
+
+.achicado {
+  height: 70px;
 }
 
 .seccion-navbar-principal {
   color: white;
   font-family: var(--fuente-botones);
   font-size: 20px;
+  font-weight: bold;
   padding: 7.5px 0px;
   position: relative;
   text-decoration: none;
@@ -25,7 +40,7 @@
   left: 0;
   bottom: -2px;
   width: 100%;
-  height: 2px;
+  height: 3px;
   background-color: transparent;
 }
 
