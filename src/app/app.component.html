@@ -1,7 +1,7 @@
 <header>
-  <nav id="navbar-principal" class="transparente">
+  <nav id="navbar-principal" [ngClass]="{ 'transparente': transparente }">
     <a [routerLink]="['']">
-      <img id="logo-navbar" class="no-achicado" src="assets/logonavbar.png">
+      <img id="logo-navbar" src="assets/logonavbar.png" [ngClass]="achicado ? 'achicado' : 'no-achicado'">
     </a>
     <a class="seccion-navbar-principal" [routerLink]="['']">NOTICIAS</a>
     <a class="seccion-navbar-principal" [routerLink]="['']">RANKING</a>
