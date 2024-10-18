@@ -7,13 +7,9 @@ import noticiaModel, { Noticia } from '../../models/noticia.model';
 })
 
 export class NoticiaService {
-  private http: HttpClient;
-  private apiURL: string;
+  /* private apiURL: string = "http://localhost:3000/noticias";
 
-  constructor(http: HttpClient) {
-    this.http = http;
-    this.apiURL = "";
-  }
+  constructor(private http: HttpClient) { }
 
   public obtenerNoticias() {
     return this.http.get(this.apiURL);
@@ -29,5 +25,5 @@ export class NoticiaService {
 
   public eliminarNoticia(id: number) {
     return this.http.delete(`${ this.apiURL }/${ id }`);
-  }
+  } */
 }

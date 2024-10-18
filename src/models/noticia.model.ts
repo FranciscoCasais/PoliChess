@@ -3,6 +3,7 @@ const parametrosNoValidos: string = "Parámetros no válidos";
 export interface Noticia {
   id: number,
   titulo: string,
+  copete: string,
   autor: string,
   fecha: Date,
   cuerpo: ElementoCuerpo[]
@@ -16,6 +17,7 @@ export interface ElementoCuerpo {
 function new_(
   id?: number,
   titulo?: string,
+  copete?: string,
   autor?: string,
   fecha?: Date,
   cuerpo?: ElementoCuerpo[],
@@ -23,6 +25,7 @@ function new_(
   return {
     id: (id ?? -1),
     titulo: (titulo ?? ''),
+    copete: (copete ?? ''),
     autor: (autor ?? ''),
     fecha: (fecha ?? new Date()),
     cuerpo: (cuerpo ?? []),
@@ -34,7 +37,7 @@ function from(param: object): Noticia {
     throw new Error(parametrosNoValidos);
   }
   const p = param as Noticia;
-  return new_(p.id, p.titulo, p.autor, p.fecha, p.cuerpo);
+  return new_(p.id, p.titulo, p.copete, p.autor, p.fecha, p.cuerpo);
 }
 
 function isNoticia(arg: unknown): boolean {
@@ -43,6 +46,7 @@ function isNoticia(arg: unknown): boolean {
     typeof arg === 'object' &&
     'id' in arg && typeof arg.id === 'number' && 
     'titulo' in arg && typeof arg.titulo === 'string' && 
+    'copete' in arg && typeof arg.copete === 'string' &&
     'autor' in arg && typeof arg.autor === 'string' &&
     'fecha' in arg && arg.fecha instanceof Date &&
     'cuerpo' in arg && Array.isArray((arg as { cuerpo: unknown[] }).cuerpo) &&
@@ -59,6 +63,7 @@ function toJSON(noticia: Noticia) {
     "noticia": {
       "id": noticia.id,
       "titulo": noticia.titulo,
+      "copete": noticia.copete,
       "autor": noticia.autor,
       "fecha": noticia.fecha,
       "cuerpo": noticia.cuerpo
