@@ -11,5 +11,12 @@
   </div>
 </main>
 <section id="noticias">
-  NOTICIAS
+  <h3>Noticias</h3>
+  <div>
+    <button (click)="cambiarNoticia(false)">&#9664;</button>
+    <div>
+      <img [src]="daniels[i]">
+    </div>
+    <button (click)="cambiarNoticia(true)">&#9654;</button>
+  </div>
 </section>
