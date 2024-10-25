@@ -18,11 +18,13 @@
 }
 
 .no-achicado {
-  height: 13.5vh;
+  height: 10vh;
+  padding: 5% 0;
 }
 
 .achicado {
-  height: 10vh;
+  height: 7.5vh;
+  padding: 4% 0;
 }
 
 .seccion-navbar-principal {

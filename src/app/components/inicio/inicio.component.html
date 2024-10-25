@@ -1,22 +1,29 @@
-<main id="contenedor-principal">
-  <div id="seccion-bienvenida">
-    <img id="logo-polichess" src="assets/logopolichess.png">
-    <div id="texto-bienvenida">
-      <h1>PoliChess</h1>
-      <h2>Todo sobre el ajedrez del Poli en un solo lugar</h2>
+<section id="inicio">
+  <main id="contenedor-principal">
+    <div id="seccion-bienvenida">
+      <img id="logo-polichess" src="assets/logopolichess.png">
+      <div id="texto-bienvenida">
+        <h1>PoliChess</h1>
+        <h2>Todo sobre el ajedrez del Poli en un solo lugar</h2>
+      </div>
     </div>
-  </div>
-  <div id="contenedor-ver-mas">
-    <button id="ver-mas" (click)="verMas()">VER MÁS &#9660;</button>
-  </div>
-</main>
-<section id="noticias">
-  <h3>Noticias</h3>
-  <div>
-    <button (click)="cambiarNoticia(false)">&#9664;</button>
-    <div>
-      <img [src]="daniels[i]">
+    <div id="contenedor-ver-mas">
+      <button id="ver-mas" (click)="verMas()">VER MÁS &#9660;</button>
     </div>
-    <button (click)="cambiarNoticia(true)">&#9654;</button>
-  </div>
+  </main>
+  <section id="noticias">
+    <h2>Noticias</h2>
+    <div id="recuadro-noticias">
+      <button class="boton-cambiar-noticia" (click)="cambiarNoticia(false)">&#9664;</button>
+      <div id="contenedor-noticia">
+        <img id="imagen-noticia" [src]="this.noticias[i].imagen">
+        <div id="texto-noticia">
+          <h3>{{ this.noticias[i].titulo }}</h3>
+          <h4>{{ this.noticias[i].copete }}</h4>
+        </div>
+        <button id="leer-noticia">LEER</button>
+      </div>
+      <button class="boton-cambiar-noticia" (click)="cambiarNoticia(true)">&#9654;</button>
+    </div>
+  </section>
 </section>
