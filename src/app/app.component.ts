@@ -1,5 +1,5 @@
-import { CommonModule } from '@angular/common';
-import { Component, HostListener } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { Component, HostListener, Inject, PLATFORM_ID } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
@@ -16,23 +16,27 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 
 export class AppComponent {
   public achicado: boolean;
-  public transparente: boolean;
 
-  constructor() {
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
     this.achicado = false;
-    this.transparente = true;
+  }
+
+  ngOnInit(): void {
+    if(isPlatformBrowser(this.platformId)) {
+      this.onWindowScroll();
+    }
   }
 
   @HostListener('window:scroll', ['$event'])
   onWindowScroll() {
-    const navbarPrincipal = document.getElementById("navbar-principal");
-    const logoNavbar = document.getElementById("logo-navbar");
-    if(window.scrollY > 0) {
-      this.achicado = true;
-      this.transparente = false;
-    } else {
-      this.achicado = false;
-      this.transparente = true;
+    if(isPlatformBrowser(this.platformId)) {
+      const navbarPrincipal = document.getElementById("navbar-principal");
+      const logoNavbar = document.getElementById("logo-navbar");
+      if(window.scrollY > 0) {
+        this.achicado = true;
+      } else {
+        this.achicado = false;
+      }
     }
   }
 }

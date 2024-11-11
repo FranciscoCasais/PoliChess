@@ -1,8 +1,10 @@
 <header>
-  <nav id="navbar-principal" [ngClass]="{ 'transparente': transparente }">
+  <nav id="navbar-principal">
     <a [routerLink]="['']">
       <img id="logo-navbar" src="assets/logonavbar.png" [ngClass]="achicado ? 'achicado' : 'no-achicado'">
     </a>
+
+    <!-- CAMBIAR CADA SECCIÓN CON CADA COMPONENTE CUANDO SE HAGAN -->
     <a class="seccion-navbar-principal" [routerLink]="['']">NOTICIAS</a>
     <a class="seccion-navbar-principal" [routerLink]="['']">RANKING</a>
     <a class="seccion-navbar-principal" [routerLink]="['']">TORNEOS</a>

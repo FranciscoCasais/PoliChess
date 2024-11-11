@@ -12,7 +12,7 @@
     </div>
   </main>
   <section id="noticias">
-    <h2>Noticias</h2>
+    <h2 [routerLink]="['']">Noticias</h2>
     <div id="recuadro-noticias">
       <button class="boton-cambiar-noticia" (click)="cambiarNoticia(false)">&#9664;</button>
       <div id="contenedor-noticia">
@@ -20,8 +20,8 @@
         <div id="texto-noticia">
           <h3>{{ this.noticias[i].titulo }}</h3>
           <h4>{{ this.noticias[i].copete }}</h4>
+          <button id="leer-noticia">LEER</button>
         </div>
-        <button id="leer-noticia">LEER</button>
       </div>
       <button class="boton-cambiar-noticia" (click)="cambiarNoticia(true)">&#9654;</button>
     </div>

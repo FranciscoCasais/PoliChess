@@ -1,11 +1,12 @@
 import { Component, inject } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { Noticia } from '../../../models/noticia.model';
 import { NoticiaService } from '../../../services/noticia/noticia.service';
 
 @Component({
   selector: 'app-inicio',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './inicio.component.html',
   styleUrl: './inicio.component.css'
 })

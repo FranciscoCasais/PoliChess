@@ -1,16 +1,12 @@
 #navbar-principal {
   align-items: center;
-  background-color: var(--gris-oscuro);
+  background-color: var(--azul-poli);
+  box-shadow: 0 0 40px 0 black;
   display: flex;
   justify-content: space-evenly;
   position: fixed;
   top: 0;
-  transition: opacity 0.3s;
   width: 100vw;
-}
-
-.transparente {
-  opacity: 0.85;
 }
 
 #logo-navbar {
