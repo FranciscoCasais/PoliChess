@@ -8,6 +8,7 @@ export interface Jugador {
   eloStandard: number;
   eloRapido: number;
   eloBlitz: number;
+  foto: string;
 }
 
 function new_(
@@ -17,6 +18,7 @@ function new_(
   eloStandard?: number,
   eloRapido?: number,
   eloBlitz?: number,
+  foto?: string,
   id?: number
 ): Jugador {
   return {
@@ -26,7 +28,8 @@ function new_(
     edad: (edad ?? -1),
     eloStandard: (eloStandard ?? -1),
     eloRapido: (eloRapido ?? -1),
-    eloBlitz: (eloBlitz ?? -1)
+    eloBlitz: (eloBlitz ?? -1),
+    foto: (foto ?? '')
   }
 }
 
@@ -35,7 +38,7 @@ function from(param: object): Jugador {
     throw new Error(INVALID_CONSTRUCTOR_PARAM);
   }
   const p = param as Jugador;
-  return new_(p.nombre, p.apellido, p.edad, p.eloStandard, p.eloRapido,p.eloBlitz, p.id);
+  return new_(p.nombre, p.apellido, p.edad, p.eloStandard, p.eloRapido,p.eloBlitz, p.foto, p.id);
 }
 
 function isJugador(arg: unknown): boolean {
@@ -48,7 +51,8 @@ function isJugador(arg: unknown): boolean {
     'edad' in arg && typeof arg.edad === 'number' &&
     'eloStandard' in arg && typeof arg.id === 'number' &&
     'eloRapido' in arg && typeof arg.eloRapido === 'number' &&
-    'eloBlitz' in arg && typeof arg.eloBlitz === 'number'
+    'eloBlitz' in arg && typeof arg.eloBlitz === 'number' &&
+    'foto' in arg && typeof arg.foto === 'string' 
   );
 }
 
@@ -61,7 +65,8 @@ function toJSON(jugador: Jugador) {
       "edad": jugador.edad,
       "eloStandard": jugador.eloStandard,
       "eloRapido": jugador.eloRapido,
-      "eloBlitz": jugador.eloBlitz
+      "eloBlitz": jugador.eloBlitz,
+      "foto": jugador.foto
     }
   }
 }
