@@ -1,37 +1,90 @@
-.jugadores-container {
-    padding: 20px;
-    margin-top: 80px; /* Agrega un margen superior para evitar la superposición con el navbar */
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  h1 {
-    text-align: center;
-    color: #333;
-  }
-  
-  ul {
-    list-style-type: none;
-    padding: 0;
-    margin-top: 20px; /* Puedes mantener este margen o ajustarlo */
-  }
-  
-  li {
-    margin: 15px 0;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #fff;
-  }
-  
-  .apodo {
-    font-style: italic;
-    color: #555;
-  }
-  
-  h2 {
-    margin: 0;
-    color: #007bff;
-  }
-  
+#inicio {
+  padding: 20vh 12.5vw;
+
+}
+
+
+
+
+
+
+
+
+
+/*  asjñasjfñajfñ*/
+
+#jugadores {
+  margin-top: 2%;
+}
+
+#jugadores h2 {
+  display: inline;
+  font-family: var(--fuente-titulos);
+  font-size: 300%;
+}
+
+#jugadores h2:hover {
+  cursor: pointer;
+}
+
+#recuadro-jugadores {
+  align-items: center;
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 1%;
+}
+
+.boton-cambiar-jugador {
+  background-color: var(--azul-poli);
+  color: white;
+  font-size: 17.5px;
+  padding: 40px 15px;
+}
+
+.boton-cambiar-jugador:hover {
+  background-color: var(--azul-poli-hover);
+  cursor: pointer;
+  z-index: 1;
+}
+
+#contenedor-jugador {
+  background-color: whitesmoke;
+  box-shadow: 0 0 5px 0 var(--sombra-suave);
+  display: flex;
+  flex-grow: 1;
+  z-index: 2;
+}
+
+#imagen-jugador {
+  height: 250px;
+  width: auto;
+}
+
+#texto-jugador {
+  padding: 10px;
+  position: relative;
+}
+
+#texto-jugador h3 {
+  font-family: var(--fuente-titulos-2);
+  font-size: 225%
+}
+
+#texto-jugador h4 {
+  font-family: var(--fuente-subtitulos);
+  font-size: 125%;
+  font-weight: normal;
+}
+
+#leer-jugador {
+  bottom: 17.5px;
+  border: 2px solid var(--azul-poli);
+  border-radius: 5px;
+  color: var(--azul-poli);
+  font-family: var(--fuente-botones);
+  font-size: 17.5px;
+  font-weight: bold;
+  padding: 7.5px;
+  position: absolute;
+  right: 17.5px;
+}

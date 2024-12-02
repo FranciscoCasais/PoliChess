@@ -8,6 +8,7 @@
   top: 0;
   transition: opacity 0.3s;
   width: 100vw;
+  z-index: 1000; 
 }
 
 .transparente {
@@ -56,6 +57,7 @@
   color: white;
   font-family: var(--fuente-texto);
   font-size: 90%;
+  z-index: 1000; 
 }
 
 #seccion-login:hover {
@@ -96,6 +98,7 @@
   visibility: hidden;
   opacity: 0; /* Añadir opacidad inicial */
   transition: visibility 0.3s ease, opacity 0.3s ease;
+  z-index: 1000; 
 }
 
 .login-overlay.visible {

@@ -1,26 +1,25 @@
-<div class="jugadores-container">
-    <h1>Jugadores de Ajedrez Patilleros</h1>
-    <ul>
-      <li>
-        <h2>Hoy Tucci <span class="apodo">(jijo)</span></h2>
-        <p>Conocido por su mente maestra y estrategias sorprendentes.</p>
-      </li>
-      <li>
-        <h2>No Danielmura <span class="apodo">(TIIIIIIIIIMBA)</span></h2>
-        <p>Rey de las partidas rápidas y un streamer carismático.</p>
-      </li>
-      <li>
-        <h2>Paga Cucucci Rucci <span class="apodo">(El Ludo Rápido)</span></h2>
-        <p>Una joven estrella con un estilo de juego dinámico y agresivo.</p>
-      </li>
-      <li>
-        <h2>Nada Santi <span class="apodo">(El As de la Estrategia)</span></h2>
-        <p>Conocido por su precisión y tácticas brillantes.</p>
-      </li>
-      <li>
-        <h2>BAAAAAAAAAAAAAAAAH Daniel Cerucci <span class="apodo">(El Jugador de la Suerte)</span></h2>
-        <p>Famoso por su enfoque audaz y arriesgado en el juego.</p>
-      </li>
-    </ul>
-  </div>
+
+<section id="inicio">
+  <main id="contenedor-principal">
   
+   <section id="jugadores">
+    <h2 [routerLink]="['']">Jugadores</h2>
+    <div id="recuadro-jugadores">
+      <button class="boton-cambiar-jugador" (click)="cambiarJugador(false)">&#9664;</button>
+      <div id="contenedor-jugador">
+        <img id="imagen-jugador" [src]="this.jugadores[i].foto">
+        <div id="texto-jugador">
+          <h3>{{ this.jugadores[i].nombre }} {{ this.jugadores[i].apellido }}</h3>
+          <br>
+          <h4>Elo Standard: {{ this.jugadores[i].eloStandard }}</h4>
+          <h4>Elo Standard: {{ this.jugadores[i].eloRapido }}</h4>
+          <h4>Elo Standard: {{ this.jugadores[i].eloBlitz }}</h4>
+          
+          <button id="leer-jugador">VER</button>
+        </div>
+      </div>
+      <button class="boton-cambiar-jugador" (click)="cambiarJugador(true)">&#9654;</button>
+    </div>
+  </section> 
+  </main>
+  </section>

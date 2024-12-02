@@ -16,14 +16,34 @@
     <div id="recuadro-noticias">
       <button class="boton-cambiar-noticia" (click)="cambiarNoticia(false)">&#9664;</button>
       <div id="contenedor-noticia">
-        <img id="imagen-noticia" [src]="this.noticias[i].imagen">
+        <img id="imagen-noticia" [src]="this.noticias[noticiai].imagen">
         <div id="texto-noticia">
-          <h3>{{ this.noticias[i].titulo }}</h3>
-          <h4>{{ this.noticias[i].copete }}</h4>
+          <h3>{{ this.noticias[noticiai].titulo }}</h3>
+          <h4>{{ this.noticias[noticiai].copete }}</h4>
           <button id="leer-noticia">LEER</button>
         </div>
       </div>
       <button class="boton-cambiar-noticia" (click)="cambiarNoticia(true)">&#9654;</button>
     </div>
   </section>
+  <section id="jugadores">
+    <h2 [routerLink]="['']">Jugadores</h2>
+    <div id="recuadro-jugadores">
+      <button class="boton-cambiar-jugador" (click)="cambiarJugador(false)">&#9664;</button>
+      <div id="contenedor-jugador">
+        <img id="imagen-jugador" [src]="this.jugadores[jugadori].foto">
+        <div id="texto-jugador">
+          <h3>{{ this.jugadores[jugadori].nombre }} {{ this.jugadores[jugadori].apellido }}</h3>
+          <br>
+          <h4>Elo Standard: {{ this.jugadores[jugadori].eloStandard }}</h4>
+          <h4>Elo Standard: {{ this.jugadores[jugadori].eloRapido }}</h4>
+          <h4>Elo Standard: {{ this.jugadores[jugadori].eloBlitz }}</h4>
+          
+          <button id="leer-jugador">VER</button>
+        </div>
+      </div>
+      <button class="boton-cambiar-jugador" (click)="cambiarJugador(true)">&#9654;</button>
+    </div>
+  </section> 
+  
 </section>

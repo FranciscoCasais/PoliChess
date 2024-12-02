@@ -4,7 +4,7 @@ export interface Jugador {
   id: number;
   nombre: string;
   apellido: string;
-  edad: number;
+  fechaDeNacimiento: Date;
   eloStandard: number;
   eloRapido: number;
   eloBlitz: number;
@@ -14,7 +14,7 @@ export interface Jugador {
 function new_(
   nombre?: string,
   apellido?: string,
-  edad?: number,
+  fechaDeNacimiento?: Date,
   eloStandard?: number,
   eloRapido?: number,
   eloBlitz?: number,
@@ -25,7 +25,7 @@ function new_(
     id: (id ?? -1),
     nombre: (nombre ?? ''),
     apellido: (apellido ?? ''),
-    edad: (edad ?? -1),
+    fechaDeNacimiento: (fechaDeNacimiento ?? new Date()),
     eloStandard: (eloStandard ?? -1),
     eloRapido: (eloRapido ?? -1),
     eloBlitz: (eloBlitz ?? -1),
@@ -38,7 +38,7 @@ function from(param: object): Jugador {
     throw new Error(INVALID_CONSTRUCTOR_PARAM);
   }
   const p = param as Jugador;
-  return new_(p.nombre, p.apellido, p.edad, p.eloStandard, p.eloRapido,p.eloBlitz, p.foto, p.id);
+  return new_(p.nombre, p.apellido, p.fechaDeNacimiento, p.eloStandard, p.eloRapido,p.eloBlitz, p.foto, p.id);
 }
 
 function isJugador(arg: unknown): boolean {
@@ -48,7 +48,7 @@ function isJugador(arg: unknown): boolean {
     'id' in arg && typeof arg.id === 'number' && 
     'nombre' in arg && typeof arg.nombre === 'string' && 
     'apellido' in arg && typeof arg.apellido === 'string' &&
-    'edad' in arg && typeof arg.edad === 'number' &&
+    'fechaDeNacimiento' in arg && arg.fechaDeNacimiento instanceof Date &&
     'eloStandard' in arg && typeof arg.id === 'number' &&
     'eloRapido' in arg && typeof arg.eloRapido === 'number' &&
     'eloBlitz' in arg && typeof arg.eloBlitz === 'number' &&
@@ -62,7 +62,7 @@ function toJSON(jugador: Jugador) {
       "id": jugador.id,
       "nombre": jugador.nombre,
       "apellido": jugador.apellido,
-      "edad": jugador.edad,
+      "edad": jugador.fechaDeNacimiento,
       "eloStandard": jugador.eloStandard,
       "eloRapido": jugador.eloRapido,
       "eloBlitz": jugador.eloBlitz,
