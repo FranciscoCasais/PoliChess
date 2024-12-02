@@ -8,83 +8,46 @@
 
 
 
-
-
-
 /*  asjñasjfñajfñ*/
-
 #jugadores {
-  margin-top: 2%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
 }
 
-#jugadores h2 {
-  display: inline;
-  font-family: var(--fuente-titulos);
-  font-size: 300%;
-}
-
-#jugadores h2:hover {
-  cursor: pointer;
-}
-
-#recuadro-jugadores {
+.jugador-card {
+  display: flex;
   align-items: center;
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.jugador-info {
   display: flex;
-  justify-content: space-evenly;
-  margin-top: 1%;
+  align-items: center;
 }
 
-.boton-cambiar-jugador {
-  background-color: var(--azul-poli);
-  color: white;
-  font-size: 17.5px;
-  padding: 40px 15px;
+.jugador-imagen {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-right: 20px;
 }
 
-.boton-cambiar-jugador:hover {
-  background-color: var(--azul-poli-hover);
-  cursor: pointer;
-  z-index: 1;
-}
-
-#contenedor-jugador {
-  background-color: whitesmoke;
-  box-shadow: 0 0 5px 0 var(--sombra-suave);
+.jugador-detalles {
   display: flex;
-  flex-grow: 1;
-  z-index: 2;
+  flex-direction: column;
 }
 
-#imagen-jugador {
-  height: 250px;
-  width: auto;
+.jugador-detalles h3 {
+  margin: 0;
+  font-size: 1.2rem;
 }
 
-#texto-jugador {
-  padding: 10px;
-  position: relative;
-}
-
-#texto-jugador h3 {
-  font-family: var(--fuente-titulos-2);
-  font-size: 225%
-}
-
-#texto-jugador h4 {
-  font-family: var(--fuente-subtitulos);
-  font-size: 125%;
-  font-weight: normal;
-}
-
-#leer-jugador {
-  bottom: 17.5px;
-  border: 2px solid var(--azul-poli);
-  border-radius: 5px;
-  color: var(--azul-poli);
-  font-family: var(--fuente-botones);
-  font-size: 17.5px;
-  font-weight: bold;
-  padding: 7.5px;
-  position: absolute;
-  right: 17.5px;
+.jugador-detalles h4 {
+  margin: 5px 0;
+  font-size: 1rem;
 }

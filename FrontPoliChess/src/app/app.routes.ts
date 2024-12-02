@@ -4,6 +4,7 @@ import { SeccionNoticiasComponent } from "./components/Secciones/seccion-noticia
 import { SeccionCalendarioComponent } from './components/Secciones/seccion-calendario/seccion-calendario.component';
 import { SeccionTorneosComponent } from './components/Secciones/seccion-torneos/seccion-torneos.component';
 import { SeccionJugadoresComponent } from './components/Secciones/seccion-jugadores/seccion-jugadores.component';
+import { JugadorComponent } from './components/Individuales/jugador/jugador.component';
 
 export const routes: Routes = [
     {
@@ -30,5 +31,9 @@ export const routes: Routes = [
     {
         path: "jugadores",
         component: SeccionJugadoresComponent,
+    },
+    {
+        path: "jugador/:id",
+        component: JugadorComponent
     },
 ];

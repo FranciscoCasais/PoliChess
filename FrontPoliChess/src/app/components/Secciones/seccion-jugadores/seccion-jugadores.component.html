@@ -2,24 +2,23 @@
 <section id="inicio">
   <main id="contenedor-principal">
   
-   <section id="jugadores">
-    <h2 [routerLink]="['']">Jugadores</h2>
-    <div id="recuadro-jugadores">
-      <button class="boton-cambiar-jugador" (click)="cambiarJugador(false)">&#9664;</button>
-      <div id="contenedor-jugador">
-        <img id="imagen-jugador" [src]="this.jugadores[i].foto">
-        <div id="texto-jugador">
-          <h3>{{ this.jugadores[i].nombre }} {{ this.jugadores[i].apellido }}</h3>
-          <br>
-          <h4>Elo Standard: {{ this.jugadores[i].eloStandard }}</h4>
-          <h4>Elo Standard: {{ this.jugadores[i].eloRapido }}</h4>
-          <h4>Elo Standard: {{ this.jugadores[i].eloBlitz }}</h4>
-          
-          <button id="leer-jugador">VER</button>
+    <section id="jugadores">
+      <h2>Jugadores</h2>
+    
+      <!-- Iterar sobre la lista de jugadores con *ngFor -->
+      <div *ngFor="let jugador of jugadores" class="jugador-card">
+        <div class="jugador-info">
+          <img [src]="jugador.foto" alt="Foto de {{ jugador.nombre }}" class="jugador-imagen">
+          <div class="jugador-detalles">
+            <h3>{{ jugador.nombre }} {{ jugador.apellido }}</h3>
+            <h4>Elo Standard: {{ jugador.eloStandard }}</h4>
+            <h4>Elo Rapido: {{ jugador.eloRapido }}</h4>
+            <h4>Elo Blitz: {{ jugador.eloBlitz }}</h4>
+          </div>
         </div>
       </div>
-      <button class="boton-cambiar-jugador" (click)="cambiarJugador(true)">&#9654;</button>
-    </div>
-  </section> 
+    </section>
+    
   </main>
-  </section>
+  </section> 
+  
