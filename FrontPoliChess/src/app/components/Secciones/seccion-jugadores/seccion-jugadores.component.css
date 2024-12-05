@@ -1,28 +1,35 @@
+/* Fondo y contenedor principal */
 #inicio {
-  padding: 20vh 12.5vw;
-
+  padding: 10vh 10vw;
+  background: linear-gradient(to bottom, #f0f0f0, #ffffff);
+  min-height: 100vh;
 }
 
-
-
-
-
-
-/*  asjñasjfñajfñ*/
 #jugadores {
   display: flex;
   flex-direction: column;
   padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
 }
 
+/* Estilos para las tarjetas de jugador */
 .jugador-card {
   display: flex;
   align-items: center;
-  border: 1px solid #ccc;
+  border: 1px solid #ddd;
   padding: 15px;
   margin-bottom: 20px;
   border-radius: 8px;
-  background-color: #f9f9f9;
+  background-color: #ffffff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.jugador-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 
 .jugador-info {
@@ -35,6 +42,7 @@
   height: 80px;
   border-radius: 50%;
   margin-right: 20px;
+  object-fit: cover;
 }
 
 .jugador-detalles {
@@ -45,23 +53,31 @@
 .jugador-detalles h3 {
   margin: 0;
   font-size: 1.2rem;
+  color: #333;
+  font-weight: bold;
 }
 
 .jugador-detalles h4 {
   margin: 5px 0;
   font-size: 1rem;
+  color: #555;
+  font-weight: normal;
 }
 
-
-/* Estilos para el filtro */
+/* Filtro */
 .filtros {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   text-align: center;
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .filtros label {
   font-size: 1.2rem;
-  margin-right: 10px;
+  margin-right: 15px;
+  color: #333;
 }
 
 .filtros select {
@@ -70,9 +86,25 @@
   border-radius: 5px;
   border: 1px solid #ccc;
   cursor: pointer;
+  background-color: #fff;
+  transition: border-color 0.3s ease;
 }
 
 .filtros select:focus {
   outline: none;
   border-color: #4CAF50;
+}
+
+/* Estilo para los enlaces (sin efecto de hipervinculo) */
+.jugador-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Fondo de la sección de jugadores */
+#jugadores {
+  background-color: #f1f1f1;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 30px;
 }
