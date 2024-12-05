@@ -5,7 +5,8 @@ import { SeccionCalendarioComponent } from './components/Secciones/seccion-calen
 import { SeccionTorneosComponent } from './components/Secciones/seccion-torneos/seccion-torneos.component';
 import { SeccionJugadoresComponent } from './components/Secciones/seccion-jugadores/seccion-jugadores.component';
 import { JugadorComponent } from './components/Individuales/jugador/jugador.component';
-
+import { NgModule } from '@angular/core';
+import { RouterModule} from '@angular/router';
 export const routes: Routes = [
     {
         path: "",
@@ -36,4 +37,10 @@ export const routes: Routes = [
         path: "jugador/:id",
         component: JugadorComponent
     },
+    
 ];
+@NgModule({
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
+  })
+  export class AppRoutingModule { }

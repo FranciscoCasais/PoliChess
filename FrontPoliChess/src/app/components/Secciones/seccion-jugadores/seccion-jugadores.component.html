@@ -1,24 +1,33 @@
-
 <section id="inicio">
   <main id="contenedor-principal">
-  
     <section id="jugadores">
-      <h2>Jugadores</h2>
     
+
+
+      <!-- Filtros -->
+      <div class="filtros">
+        <label for="filtroElo">Filtrar por Elo:</label>
+        <select id="filtroElo" (change)="filtrarJugadores($event)">
+          <option value="standard">Elo Standard</option>
+          <option value="rapido">Elo Rápido</option>
+          <option value="blitz">Elo Blitz</option>
+        </select>
+      </div>
+
       <!-- Iterar sobre la lista de jugadores con *ngFor -->
       <div *ngFor="let jugador of jugadores" class="jugador-card">
-        <div class="jugador-info">
-          <img [src]="jugador.foto" alt="Foto de {{ jugador.nombre }}" class="jugador-imagen">
-          <div class="jugador-detalles">
-            <h3>{{ jugador.nombre }} {{ jugador.apellido }}</h3>
-            <h4>Elo Standard: {{ jugador.eloStandard }}</h4>
-            <h4>Elo Rapido: {{ jugador.eloRapido }}</h4>
-            <h4>Elo Blitz: {{ jugador.eloBlitz }}</h4>
+        <a [routerLink]="['/jugador', jugador.id]" class="jugador-link">
+          <div class="jugador-info">
+            <img [src]="jugador.foto" alt="Foto de {{ jugador.nombre }}" class="jugador-imagen">
+            <div class="jugador-detalles">
+              <h3>{{ jugador.nombre }} {{ jugador.apellido }}</h3>
+              <h4>Elo Standard: {{ jugador.eloStandard }}</h4>
+              <h4>Elo Rapido: {{ jugador.eloRapido }}</h4>
+              <h4>Elo Blitz: {{ jugador.eloBlitz }}</h4>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
     </section>
-    
   </main>
-  </section> 
-  
+</section>

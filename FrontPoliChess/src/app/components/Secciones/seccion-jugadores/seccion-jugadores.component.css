@@ -51,3 +51,28 @@
   margin: 5px 0;
   font-size: 1rem;
 }
+
+
+/* Estilos para el filtro */
+.filtros {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.filtros label {
+  font-size: 1.2rem;
+  margin-right: 10px;
+}
+
+.filtros select {
+  padding: 8px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.filtros select:focus {
+  outline: none;
+  border-color: #4CAF50;
+}

@@ -9,6 +9,7 @@ export interface Jugador {
   eloRapido: number;
   eloBlitz: number;
   foto: string;
+ 
 }
 
 function new_(
@@ -52,7 +53,7 @@ function isJugador(arg: unknown): boolean {
     'eloStandard' in arg && typeof arg.id === 'number' &&
     'eloRapido' in arg && typeof arg.eloRapido === 'number' &&
     'eloBlitz' in arg && typeof arg.eloBlitz === 'number' &&
-    'foto' in arg && typeof arg.foto === 'string' 
+    'foto' in arg && typeof arg.foto === 'string'
   );
 }
 
@@ -66,7 +67,7 @@ function toJSON(jugador: Jugador) {
       "eloStandard": jugador.eloStandard,
       "eloRapido": jugador.eloRapido,
       "eloBlitz": jugador.eloBlitz,
-      "foto": jugador.foto
+      "foto": jugador.foto,
     }
   }
 }
