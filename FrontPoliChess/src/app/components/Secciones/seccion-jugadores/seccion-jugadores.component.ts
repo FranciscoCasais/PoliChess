@@ -1,44 +1,52 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms'; // Añadir esta importación
 import { JugadorService } from "../../../../services/jugador.service";
 import { Jugador } from '../../../../models/jugador.model';
 import { RouterLink } from '@angular/router';
-import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-seccion-jugadores',
   standalone: true,
-  imports: [RouterLink, CommonModule],
+  imports: [CommonModule, RouterLink, FormsModule], // Incluir FormsModule aquí
   templateUrl: './seccion-jugadores.component.html',
   styleUrls: ['./seccion-jugadores.component.css']
 })
 export class SeccionJugadoresComponent implements OnInit {
+  protected i: number = 0;
+  private jugadorService: JugadorService = inject(JugadorService);
   protected jugadores: Jugador[] = [];
   protected jugadoresFiltrados: Jugador[] = [];
-  protected filtroSeleccionado: string = 'standard'; // Filtro por defecto
+  protected busquedaNombre: string = '';
 
-  private jugadorService: JugadorService = inject(JugadorService);
-  router: any;
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
-    // Obtener la lista de jugadores
     this.jugadores = this.jugadorService.obtenerJugadores();
-    this.jugadoresFiltrados = [...this.jugadores]; // Copiar los jugadores para que se pueda filtrar
+    this.jugadoresFiltrados = [...this.jugadores]; // Inicializa con todos los jugadores
   }
 
-   // Función para filtrar jugadores por el valor de 'Elo'
-   filtrarJugadores(event: any): void {
-    this.filtroSeleccionado = event.target.value; // Actualizar el filtro seleccionado
-    this.jugadoresFiltrados = this.jugadores.sort((a, b) => {
-      // Dependiendo del filtro, ordenamos por el tipo de Elo seleccionado de mayor a menor
-      if (this.filtroSeleccionado === 'standard') {
-        return b.eloStandard - a.eloStandard; // Orden de mayor a menor
-      } else if (this.filtroSeleccionado === 'rapido') {
-        return b.eloRapido - a.eloRapido; // Orden de mayor a menor
-      } else {
-        return b.eloBlitz - a.eloBlitz; // Orden de mayor a menor
-      }
-    });
+  // Filtra los jugadores por nombre (insensible a mayúsculas/minúsculas)
+  filtrarPorNombre(): void {
+    if (this.busquedaNombre.trim() === '') {
+      this.jugadoresFiltrados = [...this.jugadores]; // Si no hay búsqueda, muestra todos los jugadores
+    } else {
+      this.jugadoresFiltrados = this.jugadores.filter(jugador => 
+        `${jugador.nombre} ${jugador.apellido}`.toLowerCase().includes(this.busquedaNombre.toLowerCase())
+      );
+    }
+  }
+
+  // Función para filtrar por el Elo
+  filtrarJugadores(event: any): void {
+    const elo = event.target.value;
+    if (elo === 'standard') {
+      this.jugadoresFiltrados = this.jugadores.sort((a, b) => a.eloStandard - b.eloStandard);
+    } else if (elo === 'rapido') {
+      this.jugadoresFiltrados = this.jugadores.sort((a, b) => a.eloRapido - b.eloRapido);
+    } else if (elo === 'blitz') {
+      this.jugadoresFiltrados = this.jugadores.sort((a, b) => a.eloBlitz - b.eloBlitz);
+    }
   }
 }

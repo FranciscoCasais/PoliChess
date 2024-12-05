@@ -1,4 +1,4 @@
-/* Fondo y contenedor principal */
+/* Estilos generales */
 #inicio {
   padding: 10vh 10vw;
   background: linear-gradient(to bottom, #f0f0f0, #ffffff);
@@ -13,6 +13,40 @@
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   margin-top: 20px;
+}
+
+/* Estilo para el filtro de nombre (buscador) */
+.buscador {
+  margin-bottom: 20px;
+  text-align: center;
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.buscador label {
+  font-size: 1.2rem;
+  margin-right: 15px;
+  color: #333;
+}
+
+.buscador input {
+  padding: 8px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  background-color: #fff;
+  width: 100%;
+  max-width: 300px;
+  margin-top: 10px;
+  transition: border-color 0.3s ease;
+}
+
+.buscador input:focus {
+  outline: none;
+  border-color: #4CAF50;
 }
 
 /* Estilos para las tarjetas de jugador */
@@ -99,12 +133,4 @@
 .jugador-link {
   text-decoration: none;
   color: inherit;
-}
-
-/* Fondo de la sección de jugadores */
-#jugadores {
-  background-color: #f1f1f1;
-  border-radius: 10px;
-  padding: 20px;
-  margin-top: 30px;
 }

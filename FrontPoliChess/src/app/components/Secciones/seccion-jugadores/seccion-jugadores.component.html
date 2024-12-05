@@ -2,7 +2,14 @@
   <main id="contenedor-principal">
     <section id="jugadores">
 
-      <!-- Filtros -->
+
+
+ <!-- Buscador por nombre -->
+      <div class="buscador">
+        <label for="buscarJugador">Buscar Jugador por Nombre:</label>
+        <input type="text" id="buscarJugador" [(ngModel)]="busquedaNombre" (input)="filtrarPorNombre()" placeholder="Nombre...">
+      </div>
+      <!-- Filtros de Elo -->
       <div class="filtros">
         <label for="filtroElo">Filtrar por Elo:</label>
         <select id="filtroElo" (change)="filtrarJugadores($event)">
@@ -12,8 +19,10 @@
         </select>
       </div>
 
+     
+
       <!-- Iterar sobre la lista de jugadores con *ngFor -->
-      <div *ngFor="let jugador of jugadores" class="jugador-card">
+      <div *ngFor="let jugador of jugadoresFiltrados" class="jugador-card">
         <a [routerLink]="['/jugador', jugador.id]" class="jugador-link">
           <div class="jugador-info">
             <img [src]="jugador.foto" alt="Foto de {{ jugador.nombre }}" class="jugador-imagen">
