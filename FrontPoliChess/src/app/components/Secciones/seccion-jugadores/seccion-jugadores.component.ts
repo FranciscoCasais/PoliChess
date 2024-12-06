@@ -14,39 +14,46 @@ import { Router } from '@angular/router';
   styleUrls: ['./seccion-jugadores.component.css']
 })
 export class SeccionJugadoresComponent implements OnInit {
-  protected i: number = 0;
-  private jugadorService: JugadorService = inject(JugadorService);
   protected jugadores: Jugador[] = [];
   protected jugadoresFiltrados: Jugador[] = [];
   protected busquedaNombre: string = '';
+  protected filtroElo: string = 'standard'; // Valor predeterminado
 
-  constructor(private router: Router) {}
+  constructor(
+    private jugadorService: JugadorService, // Inyección en el constructor
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.jugadores = this.jugadorService.obtenerJugadores();
-    this.jugadoresFiltrados = [...this.jugadores]; // Inicializa con todos los jugadores
+    this.filtrarJugadoresPorElo(); // Aplicar filtro por Elo Standard al inicio
   }
 
-  // Filtra los jugadores por nombre (insensible a mayúsculas/minúsculas)
   filtrarPorNombre(): void {
-    if (this.busquedaNombre.trim() === '') {
-      this.jugadoresFiltrados = [...this.jugadores]; // Si no hay búsqueda, muestra todos los jugadores
-    } else {
-      this.jugadoresFiltrados = this.jugadores.filter(jugador => 
-        `${jugador.nombre} ${jugador.apellido}`.toLowerCase().includes(this.busquedaNombre.toLowerCase())
-      );
-    }
+    const nombreBusqueda = this.busquedaNombre.toLowerCase();
+    this.jugadoresFiltrados = this.jugadores.filter(jugador =>
+      `${jugador.nombre} ${jugador.apellido}`.toLowerCase().includes(nombreBusqueda)
+    );
   }
 
-  // Función para filtrar por el Elo
-  filtrarJugadores(event: any): void {
-    const elo = event.target.value;
-    if (elo === 'standard') {
-      this.jugadoresFiltrados = this.jugadores.sort((a, b) => a.eloStandard - b.eloStandard);
-    } else if (elo === 'rapido') {
-      this.jugadoresFiltrados = this.jugadores.sort((a, b) => a.eloRapido - b.eloRapido);
-    } else if (elo === 'blitz') {
-      this.jugadoresFiltrados = this.jugadores.sort((a, b) => a.eloBlitz - b.eloBlitz);
+  filtrarJugadores(event?: any): void {
+    if (event) {
+      this.filtroElo = event.target.value;
+    }
+    this.filtrarJugadoresPorElo();
+  }
+
+  private filtrarJugadoresPorElo(): void {
+    switch (this.filtroElo) {
+      case 'rapido':
+        this.jugadoresFiltrados = [...this.jugadores].sort((a, b) => b.eloRapido - a.eloRapido);
+        break;
+      case 'blitz':
+        this.jugadoresFiltrados = [...this.jugadores].sort((a, b) => b.eloBlitz - a.eloBlitz);
+        break;
+      default: // Caso 'standard'
+        this.jugadoresFiltrados = [...this.jugadores].sort((a, b) => b.eloStandard - a.eloStandard);
+        break;
     }
   }
 }
