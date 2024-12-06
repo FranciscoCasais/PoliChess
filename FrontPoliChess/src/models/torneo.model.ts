@@ -1,39 +1,42 @@
 import { Jugador } from "./jugador.model";
 
-const INVALID_CONSTRUCTOR_PARAM = 'nameOrObj arg must a string or an object with the appropriate song keys.';
+const INVALID_CONSTRUCTOR_PARAM = 'nameOrObj arg must be a string or an object with the appropriate keys.';
 
 export interface Torneo {
   id: number;
   nombre: string;
   ritmo: string;
   fecha: Date;
+  hora: string; // Hora como string en formato HH:mm
   jugadores: Set<Jugador>;
   rankingInicial: Map<number, Jugador>;
   rankingFinal: Map<number, Jugador>;
   ganador?: Jugador;
-  estado?: 'pendiente' | 'en_curso' | 'finalizado'; // Nuevo atributo
-  duracion?: { inicio: Date; fin: Date }; // Nuevo atributo
-  descripcion?: string; // Nuevo atributo
+  estado?: 'pendiente' | 'en_curso' | 'finalizado';
+  duracion?: { inicio: Date; fin: Date };
+  descripcion?: string;
 }
 
 function new_(
   nombre?: string,
   ritmo?: string,
   fecha?: Date,
+  hora?: string, // Hora como string
   jugadores: Set<Jugador> = new Set(),
   rankingInicial: Map<number, Jugador> = new Map(),
   rankingFinal: Map<number, Jugador> = new Map(),
   ganador?: Jugador,
   id?: number,
-  estado?: 'pendiente' | 'en_curso' | 'finalizado', // Nuevo atributo
-  duracion?: { inicio: Date; fin: Date }, // Nuevo atributo
-  descripcion?: string // Nuevo atributo
+  estado?: 'pendiente' | 'en_curso' | 'finalizado',
+  duracion?: { inicio: Date; fin: Date },
+  descripcion?: string
 ): Torneo {
   return {
     id: id ?? -1,
     nombre: nombre ?? '',
     ritmo: ritmo ?? '',
     fecha: fecha ?? new Date(),
+    hora: hora ?? "", 
     jugadores: jugadores,
     rankingInicial: rankingInicial,
     rankingFinal: rankingFinal,
@@ -53,6 +56,7 @@ function from(param: object): Torneo {
     p.nombre,
     p.ritmo,
     p.fecha,
+    p.hora, // Hora como string
     p.jugadores,
     p.rankingInicial,
     p.rankingFinal,
@@ -72,6 +76,7 @@ function isTorneo(arg: unknown): boolean {
     'nombre' in arg && typeof (arg as any).nombre === 'string' &&
     'ritmo' in arg && typeof (arg as any).ritmo === 'string' &&
     'fecha' in arg && arg.fecha instanceof Date &&
+    ('hora' in arg && (typeof (arg as any).hora === 'string' || (arg as any).hora === undefined)) &&
     'jugadores' in arg && arg.jugadores instanceof Set &&
     'rankingInicial' in arg && arg.rankingInicial instanceof Map &&
     'rankingFinal' in arg && arg.rankingFinal instanceof Map &&
@@ -89,6 +94,7 @@ function toJSON(torneo: Torneo) {
       "nombre": torneo.nombre,
       "ritmo": torneo.ritmo,
       "fecha": torneo.fecha.toISOString(),
+      "hora": torneo.hora ?? null, // Guardamos la hora como string o null
       "jugadores": Array.from(torneo.jugadores).map(jugador => ({
         id: jugador.id,
         nombre: jugador.nombre

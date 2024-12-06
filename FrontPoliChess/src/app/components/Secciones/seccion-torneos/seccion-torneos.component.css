@@ -84,7 +84,29 @@
     color: #555;
     font-weight: normal;
   }
+  .torneo-link {
+    text-decoration: none;
+    color: inherit;
+  }
+
   
+  /* Estilos para los estados del torneo */
+/* Estilos para los estados del torneo */
+.estado-en-curso {
+    color: #B6A34A;
+    font-weight: bold;
+}
+
+.estado-pendiente {
+    color: #556B2F;
+    font-weight: bold;
+}
+
+.estado-finalizado {
+    color: #9E2A2F;
+    font-weight: bold;
+}
+
   /* Filtro */
   .filtros {
     margin-bottom: 30px;
@@ -116,26 +138,5 @@
     border-color: #4CAF50;
   }
   
-  /* Estilo para los enlaces (sin efecto de hipervinculo) */
-  .torneo-link {
-    text-decoration: none;
-    color: inherit;
-  }
+
   
-  /* Estilos para los estados del torneo */
-/* Estilos para los estados del torneo */
-.estado-en-curso {
-    color: #B6A34A;
-    font-weight: bold;
-}
-
-.estado-pendiente {
-    color: #556B2F;
-    font-weight: bold;
-}
-
-.estado-finalizado {
-    color: #9E2A2F;
-    font-weight: bold;
-}
-

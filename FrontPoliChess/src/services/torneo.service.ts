@@ -20,6 +20,7 @@ export class TorneoService {
         nombre: "Campeonato Mundial",
         ritmo: "Blitz",
         fecha: new Date("2024-01-15"),
+        hora: "15:00",
         jugadores: new Set(),
         rankingInicial: new Map(),
         rankingFinal: new Map(),
@@ -36,6 +37,7 @@ export class TorneoService {
         nombre: "Torneo Regional",
         ritmo: "Standard",
         fecha: new Date("2025-02-01"),
+        hora: "15:00",
         jugadores: new Set(),
         rankingInicial: new Map(),
         rankingFinal: new Map(),
@@ -51,14 +53,15 @@ export class TorneoService {
         id: 2,
         nombre: "Torneo Internacional Rápido",
         ritmo: "Rápido",
-        fecha: new Date("2024-03-10"),
+        fecha: new Date("2024-01-10"),
+        hora: "15:00",
         jugadores: new Set(),
         rankingInicial: new Map(),
         rankingFinal: new Map(),
         estado: 'pendiente',
         duracion: {
-          inicio: new Date("2024-03-10T10:00:00"),
-          fin: new Date("2024-03-10T15:00:00")
+          inicio: new Date("2024-01-10T10:00:00"),
+          fin: new Date("2024-01-10T15:00:00")
         },
         descripcion: "Un torneo de ajedrez rápido a nivel internacional",
         ganador: undefined
@@ -68,6 +71,7 @@ export class TorneoService {
         nombre: "Copa Nacional",
         ritmo: "Standard",
         fecha: new Date("2024-04-15"),
+        hora: "15:00",
         jugadores: new Set(),
         rankingInicial: new Map(),
         rankingFinal: new Map(),
@@ -84,6 +88,7 @@ export class TorneoService {
         nombre: "Torneo Universitario",
         ritmo: "Blitz",
         fecha: new Date("2024-05-01"),
+        hora: "15:00",
         jugadores: new Set(),
         rankingInicial: new Map(),
         rankingFinal: new Map(),
@@ -100,6 +105,7 @@ export class TorneoService {
         nombre: "Copa de Invierno",
         ritmo: "Standard",
         fecha: new Date("2024-06-20"),
+        hora: "15:00",
         jugadores: new Set(),
         rankingInicial: new Map(),
         rankingFinal: new Map(),
@@ -116,6 +122,7 @@ export class TorneoService {
         nombre: "Copa Internacional Blitz",
         ritmo: "Blitz",
         fecha: new Date("2024-07-05"),
+        hora: "15:00",
         jugadores: new Set(),
         rankingInicial: new Map(),
         rankingFinal: new Map(),
@@ -132,6 +139,7 @@ export class TorneoService {
         nombre: "Torneo Juvenil de Ajedrez",
         ritmo: "Rápido",
         fecha: new Date("2024-08-10"),
+        hora: "15:00",
         jugadores: new Set(),
         rankingInicial: new Map(),
         rankingFinal: new Map(),
@@ -148,6 +156,7 @@ export class TorneoService {
         nombre: "Torneo Abierto de Ajedrez",
         ritmo: "Standard",
         fecha: new Date("2024-09-25"),
+        hora: "15:00",
         jugadores: new Set(),
         rankingInicial: new Map(),
         rankingFinal: new Map(),
@@ -164,6 +173,7 @@ export class TorneoService {
         nombre: "Copa del Mundo Ajedrez",
         ritmo: "Blitz",
         fecha: new Date("2024-10-05"),
+        hora: "15:00",
         jugadores: new Set(),
         rankingInicial: new Map(),
         rankingFinal: new Map(),
@@ -180,6 +190,7 @@ export class TorneoService {
         nombre: "Campeonato Latinoamericano",
         ritmo: "Standard",
         fecha: new Date("2024-11-15"),
+        hora: "15:00",
         jugadores: new Set(),
         rankingInicial: new Map(),
         rankingFinal: new Map(),
@@ -196,6 +207,7 @@ export class TorneoService {
         nombre: "Torneo de Ajedrez Online",
         ritmo: "Rápido",
         fecha: new Date("2024-12-01"),
+        hora: "15:00",
         jugadores: new Set(),
         rankingInicial: new Map(),
         rankingFinal: new Map(),
@@ -209,20 +221,22 @@ export class TorneoService {
       },
       {
         id: 12,
-        nombre: "Copa Ajedrez 2025",
+        nombre: "Copa Honor a La Crema de fin de año",
         ritmo: "Blitz",
-        fecha: new Date("2025-01-15"),
+        fecha: new Date("2030-11-08"),
+        hora: "15:00",
         jugadores: new Set(),
         rankingInicial: new Map(),
         rankingFinal: new Map(),
         estado: 'pendiente',
         duracion: {
-          inicio: new Date("2024-12-06T10:00:00"),
-          fin: new Date("2024-12-06T15:00:00")
+          inicio: new Date("2030-11-08T10:00:00"),
+          fin: new Date("2030-11-08T15:00:00")
         },
-        descripcion: "Copa internacional con formato Blitz para 2025",
+        descripcion: "La copa honor a la crema ha sido un evento importantisimo en el club Gruyere desde tiempos ancestrales.",
         ganador: undefined
       }
     ];
   }
+  
 }

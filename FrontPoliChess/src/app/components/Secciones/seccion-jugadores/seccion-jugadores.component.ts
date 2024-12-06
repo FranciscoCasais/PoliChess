@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms'; // Añadir esta importación
 import { JugadorService } from "../../../../services/jugador.service";
@@ -26,33 +26,38 @@ export class SeccionJugadoresComponent implements OnInit {
 
   ngOnInit(): void {
     this.jugadores = this.jugadorService.obtenerJugadores();
-    this.filtrarJugadoresPorElo(); // Aplicar filtro por Elo Standard al inicio
+    this.filtrarJugadores(); // Aplicar ambos filtros por nombre y Elo al inicio
   }
 
   filtrarPorNombre(): void {
     const nombreBusqueda = this.busquedaNombre.toLowerCase();
+    // Filtrar jugadores por nombre
     this.jugadoresFiltrados = this.jugadores.filter(jugador =>
       `${jugador.nombre} ${jugador.apellido}`.toLowerCase().includes(nombreBusqueda)
     );
+    // Aplicar el filtro de Elo sobre los jugadores ya filtrados por nombre
+    this.filtrarJugadoresPorElo();
   }
 
   filtrarJugadores(event?: any): void {
     if (event) {
       this.filtroElo = event.target.value;
     }
-    this.filtrarJugadoresPorElo();
+    // Primero filtramos por nombre
+    this.filtrarPorNombre();
   }
 
   private filtrarJugadoresPorElo(): void {
+    // Ahora aplicamos el filtro por Elo sobre los jugadores ya filtrados por nombre
     switch (this.filtroElo) {
       case 'rapido':
-        this.jugadoresFiltrados = [...this.jugadores].sort((a, b) => b.eloRapido - a.eloRapido);
+        this.jugadoresFiltrados = this.jugadoresFiltrados.sort((a, b) => b.eloRapido - a.eloRapido);
         break;
       case 'blitz':
-        this.jugadoresFiltrados = [...this.jugadores].sort((a, b) => b.eloBlitz - a.eloBlitz);
+        this.jugadoresFiltrados = this.jugadoresFiltrados.sort((a, b) => b.eloBlitz - a.eloBlitz);
         break;
       default: // Caso 'standard'
-        this.jugadoresFiltrados = [...this.jugadores].sort((a, b) => b.eloStandard - a.eloStandard);
+        this.jugadoresFiltrados = this.jugadoresFiltrados.sort((a, b) => b.eloStandard - a.eloStandard);
         break;
     }
   }
