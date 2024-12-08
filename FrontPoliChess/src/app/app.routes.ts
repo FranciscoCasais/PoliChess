@@ -8,6 +8,7 @@ import { JugadorComponent } from './components/Individuales/jugador/jugador.comp
 import { NgModule } from '@angular/core';
 import { RouterModule} from '@angular/router';
 import { TorneoComponent } from './components/Individuales/torneo/torneo.component';
+import { NoticiaComponent } from './components/Individuales/noticia/noticia.component';
 export const routes: Routes = [
     {
         path: "",
@@ -41,6 +42,10 @@ export const routes: Routes = [
     {
         path: "torneo/:id",
         component: TorneoComponent
+    },
+    {
+        path: "noticia/:id",
+        component: NoticiaComponent
     },
     
 ];

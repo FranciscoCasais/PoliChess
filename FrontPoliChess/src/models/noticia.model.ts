@@ -7,7 +7,8 @@ export interface Noticia {
   copete: string,
   autor: string,
   fecha: Date,
-  cuerpo: ElementoCuerpo[]
+  cuerpo: ElementoCuerpo[],
+  importancia: 1 | 2 | 3 | 4 | 5  // Niveles de importancia
 }
 
 export interface ElementoCuerpo {
@@ -23,6 +24,7 @@ function new_(
   autor?: string,
   fecha?: Date,
   cuerpo?: ElementoCuerpo[],
+  importancia?: 1 | 2 | 3 | 4 | 5  // Parámetro de importancia
 ): Noticia {
   return {
     id: (id ?? -1),
@@ -32,6 +34,7 @@ function new_(
     autor: (autor ?? ''),
     fecha: (fecha ?? new Date()),
     cuerpo: (cuerpo ?? []),
+    importancia: (importancia ?? 3),  // Valor por defecto de importancia es 3
   }
 }
 
@@ -40,7 +43,7 @@ function from(param: object): Noticia {
     throw new Error(parametrosNoValidos);
   }
   const p = param as Noticia;
-  return new_(p.id, p.titulo, p.imagen, p.copete, p.autor, p.fecha, p.cuerpo);
+  return new_(p.id, p.titulo, p.imagen, p.copete, p.autor, p.fecha, p.cuerpo, p.importancia);
 }
 
 function isNoticia(arg: unknown): boolean {
@@ -58,7 +61,9 @@ function isNoticia(arg: unknown): boolean {
       typeof item === 'object' && item !== null && 
       'etiqueta' in item && typeof item.etiqueta === 'string' &&
       'contenido' in item && typeof item.contenido === 'string'
-    )
+    ) &&
+    'importancia' in arg && typeof (arg as { importancia: number }).importancia === 'number' &&
+    [1, 2, 3, 4, 5].includes((arg as { importancia: number }).importancia) // Verifica que la importancia esté entre 1 y 5
   );
 }
 
@@ -71,7 +76,8 @@ function toJSON(noticia: Noticia) {
       "copete": noticia.copete,
       "autor": noticia.autor,
       "fecha": noticia.fecha,
-      "cuerpo": noticia.cuerpo
+      "cuerpo": noticia.cuerpo,
+      "importancia": noticia.importancia
     }
   }
 }
