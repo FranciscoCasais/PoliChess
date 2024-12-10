@@ -235,7 +235,24 @@ export class TorneoService {
         },
         descripcion: "La copa honor a la crema ha sido un evento importantisimo en el club Gruyere desde tiempos ancestrales.",
         ganador: undefined
-      }
+      },
+      {
+        id: 13,
+        nombre: "Torneo Ludopatia infantil",
+        ritmo: "Blitz",
+        fecha: new Date("2024-12-10"),
+        hora: "23:00",
+        jugadores: new Set(),
+        rankingInicial: new Map(),
+        rankingFinal: new Map(),
+        estado: 'pendiente',
+        duracion: {
+          inicio: new Date("2024-12-10T23:00:00"),
+          fin: new Date("2024-12-10T23:30:00")
+        },
+        descripcion: "Torneo en honor a Francisco Casais, cuyo mercado pago fue vaciado y a raiz de la depresión que eso le generó decidió no laburar NIIIIIIIIENPEDO en polichess",
+        ganador: undefined
+      },
     ];
   }
   

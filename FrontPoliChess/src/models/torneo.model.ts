@@ -11,7 +11,7 @@ export interface Torneo {
   jugadores: Set<Jugador>;
   rankingInicial: Map<number, Jugador>;
   rankingFinal: Map<number, Jugador>;
-  ganador?: Jugador;
+  ganador?: Jugador;  
   estado?: 'pendiente' | 'en_curso' | 'finalizado';
   duracion?: { inicio: Date; fin: Date };
   descripcion?: string;
