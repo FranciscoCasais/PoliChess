@@ -172,6 +172,10 @@
 .button-group {
   display: flex;
   justify-content: space-between;
+  /*
+  justify-content: center;  
+  width: 100%;  
+  */ /* para centrar los botones, pero queda feo */
 }
 
 .btn {
@@ -212,6 +216,7 @@
   color: #1D3557;
   text-decoration: none;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .switch-link:hover {

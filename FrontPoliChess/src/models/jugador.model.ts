@@ -9,7 +9,7 @@ export interface Jugador {
   eloRapido: number;
   eloBlitz: number;
   foto: string;
- 
+  nombreDeUsuario: string; // Nuevo atributo
 }
 
 function new_(
@@ -20,6 +20,7 @@ function new_(
   eloRapido?: number,
   eloBlitz?: number,
   foto?: string,
+  nombreDeUsuario?: string, // Parámetro opcional para el nombre de usuario
   id?: number
 ): Jugador {
   return {
@@ -30,7 +31,8 @@ function new_(
     eloStandard: (eloStandard ?? -1),
     eloRapido: (eloRapido ?? -1),
     eloBlitz: (eloBlitz ?? -1),
-    foto: (foto ?? '')
+    foto: (foto ?? ''),
+    nombreDeUsuario: (nombreDeUsuario ?? '') // Asignar el valor por defecto si no se pasa
   }
 }
 
@@ -39,7 +41,17 @@ function from(param: object): Jugador {
     throw new Error(INVALID_CONSTRUCTOR_PARAM);
   }
   const p = param as Jugador;
-  return new_(p.nombre, p.apellido, p.fechaDeNacimiento, p.eloStandard, p.eloRapido,p.eloBlitz, p.foto, p.id);
+  return new_(
+    p.nombre, 
+    p.apellido, 
+    p.fechaDeNacimiento, 
+    p.eloStandard, 
+    p.eloRapido, 
+    p.eloBlitz, 
+    p.foto, 
+    p.nombreDeUsuario, // Aseguramos que el nombre de usuario se pase aquí
+    p.id
+  );
 }
 
 function isJugador(arg: unknown): boolean {
@@ -50,10 +62,11 @@ function isJugador(arg: unknown): boolean {
     'nombre' in arg && typeof arg.nombre === 'string' && 
     'apellido' in arg && typeof arg.apellido === 'string' &&
     'fechaDeNacimiento' in arg && arg.fechaDeNacimiento instanceof Date &&
-    'eloStandard' in arg && typeof arg.id === 'number' &&
+    'eloStandard' in arg && typeof arg.eloStandard === 'number' &&
     'eloRapido' in arg && typeof arg.eloRapido === 'number' &&
     'eloBlitz' in arg && typeof arg.eloBlitz === 'number' &&
-    'foto' in arg && typeof arg.foto === 'string'
+    'foto' in arg && typeof arg.foto === 'string' &&
+    'nombreDeUsuario' in arg && typeof arg.nombreDeUsuario === 'string' // Validamos el nombre de usuario
   );
 }
 
@@ -68,6 +81,7 @@ function toJSON(jugador: Jugador) {
       "eloRapido": jugador.eloRapido,
       "eloBlitz": jugador.eloBlitz,
       "foto": jugador.foto,
+      "nombreDeUsuario": jugador.nombreDeUsuario // Añadimos el nombre de usuario a la salida JSON
     }
   }
 }
@@ -78,3 +92,4 @@ export default {
   isJugador,
   toJSON
 } as const;
+  
