@@ -7,13 +7,8 @@ export interface Noticia {
   copete: string,
   autor: string,
   fecha: Date,
-  cuerpo: ElementoCuerpo[],
-  importancia: 1 | 2 | 3 | 4 | 5  // Niveles de importancia
-}
-
-export interface ElementoCuerpo {
-  etiqueta: "h3" | "p" | "img",
-  contenido: string
+  cuerpo: string,  
+  importancia: 1 | 2 | 3 | 4 | 5  
 }
 
 function new_(
@@ -23,7 +18,7 @@ function new_(
   copete?: string,
   autor?: string,
   fecha?: Date,
-  cuerpo?: ElementoCuerpo[],
+  cuerpo?: string, // Parámetro de cuerpo como string
   importancia?: 1 | 2 | 3 | 4 | 5  // Parámetro de importancia
 ): Noticia {
   return {
@@ -33,13 +28,13 @@ function new_(
     copete: (copete ?? ''),
     autor: (autor ?? ''),
     fecha: (fecha ?? new Date()),
-    cuerpo: (cuerpo ?? []),
+    cuerpo: (cuerpo ?? ''),  // Valor por defecto del cuerpo es un string vacío
     importancia: (importancia ?? 3),  // Valor por defecto de importancia es 3
   }
 }
 
 function from(param: object): Noticia {
-  if(!isNoticia(param)) {
+  if (!isNoticia(param)) {
     throw new Error(parametrosNoValidos);
   }
   const p = param as Noticia;
@@ -50,18 +45,13 @@ function isNoticia(arg: unknown): boolean {
   return (
     !!arg &&
     typeof arg === 'object' &&
-    'id' in arg && typeof arg.id === 'number' && 
-    'titulo' in arg && typeof arg.titulo === 'string' && 
+    'id' in arg && typeof arg.id === 'number' &&
+    'titulo' in arg && typeof arg.titulo === 'string' &&
     'imagen' in arg && typeof arg.imagen === 'string' &&
     'copete' in arg && typeof arg.copete === 'string' &&
     'autor' in arg && typeof arg.autor === 'string' &&
     'fecha' in arg && arg.fecha instanceof Date &&
-    'cuerpo' in arg && Array.isArray((arg as { cuerpo: unknown[] }).cuerpo) &&
-    (arg as { cuerpo: unknown[] }).cuerpo.every(item => 
-      typeof item === 'object' && item !== null && 
-      'etiqueta' in item && typeof item.etiqueta === 'string' &&
-      'contenido' in item && typeof item.contenido === 'string'
-    ) &&
+    'cuerpo' in arg && typeof (arg as { cuerpo: unknown }).cuerpo === 'string' &&
     'importancia' in arg && typeof (arg as { importancia: number }).importancia === 'number' &&
     [1, 2, 3, 4, 5].includes((arg as { importancia: number }).importancia) // Verifica que la importancia esté entre 1 y 5
   );
@@ -76,7 +66,7 @@ function toJSON(noticia: Noticia) {
       "copete": noticia.copete,
       "autor": noticia.autor,
       "fecha": noticia.fecha,
-      "cuerpo": noticia.cuerpo,
+      "cuerpo": noticia.cuerpo,  // Cuerpo como string
       "importancia": noticia.importancia
     }
   }

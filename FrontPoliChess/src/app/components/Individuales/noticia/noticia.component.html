@@ -1,27 +1,20 @@
 <div *ngIf="noticia" class="noticia-container">
-    <div class="noticia-card">
-      <!-- Título y copete -->
-      <h2>{{ noticia.titulo }}</h2>
-      <img [src]="noticia.imagen" alt="Imagen de {{ noticia.titulo }}" class="noticia-imagen">
-      
-      <!-- Información básica -->
-      <div class="noticia-info">
-        <h4><strong>Publicado por:</strong> {{ noticia.autor }}</h4>
-        <h4><strong>Fecha de publicación:</strong> {{ noticia.fecha | date: 'dd/MM/yyyy' }}</h4>
-        <h4><strong>Resumen:</strong> {{ noticia.copete }}</h4>
-      </div>
-  
-      <!-- Cuerpo de la noticia (iteramos sobre el array) -->
-      <div class="noticia-cuerpo">
-        <h3>Contenido de la noticia</h3>
-        <div *ngFor="let item of noticia.cuerpo">
-          <ng-container [ngSwitch]="item.etiqueta">
-            <h3 *ngSwitchCase="'h3'">{{ item.contenido }}</h3>
-            <p *ngSwitchCase="'p'">{{ item.contenido }}</p>
-            <img *ngSwitchCase="'img'" [src]="item.contenido" alt="Imagen de contenido" class="noticia-cuerpo-imagen">
-          </ng-container>
-        </div>
-      </div>
+  <div class="noticia-card">
+    <!-- Título y copete -->
+    <h2>{{ noticia.titulo }}</h2>
+    <img [src]="noticia.imagen" alt="Imagen de {{ noticia.titulo }}" class="noticia-imagen">
+
+    <!-- Información básica -->
+    <div class="noticia-info">
+      <h4><strong>Publicado por:</strong> {{ noticia.autor }}</h4>
+      <h4><strong>Fecha de publicación:</strong> {{ noticia.fecha | date: 'dd/MM/yyyy' }}</h4>
+      <h4><strong>Resumen:</strong> {{ noticia.copete }}</h4>
+    </div>
+
+    <!-- Cuerpo de la noticia -->
+    <div class="noticia-cuerpo">
+      <h3>Contenido de la noticia</h3>
+      <p>{{ noticia.cuerpo }}</p>
     </div>
   </div>
-  
+</div>
