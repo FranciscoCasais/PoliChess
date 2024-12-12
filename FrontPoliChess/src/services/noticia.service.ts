@@ -26,139 +26,145 @@ export class NoticiaService {
   public eliminarNoticia(id: number) {
     return this.http.delete(`${ this.apiURL }/${ id }`);
   } */
-
+  public obtenerNoticiaPorId(id: number): Noticia | undefined {
+    const noticias = this.obtenerNoticias(); // Supongamos que ya tienes este método que devuelve todos los jugadores
+    return noticias.find(noticia => noticia.id === id);
+  }
     public obtenerNoticias(): Noticia[] {
       return [
         {
           id: 0,
-          titulo: "Sapo Peluquería gana torneo regional",
-          imagen: "assets/danielpoeta.jpg",
-          copete: "Daniel Lengua destacó como el mejor jugador del torneo organizado en Arquitectura.",
+          titulo: "Campeonato Mundial: Daniel India vence a Daniel China en un duelo épico",
+          imagen: "assets/indiavschina.jpeg",
+          copete: "Un enfrentamiento histórico entre dos de los mejores jugadores del mundo dejó boquiabiertos a los espectadores.",
           autor: "Francisco Casais",
           fecha: new Date("2024-10-25"),
-          cuerpo: "Daniel Lengua sobresalió en el campeonato regional gracias a su increíble desempeño en el torneo de sapos, demostrando que la práctica y dedicación dan frutos.",
+          cuerpo: "El Campeonato Mundial de Ajedrez vivió uno de los momentos más emocionantes en su historia cuando Daniel India se enfrentó a Daniel China en una partida final épica. Con estrategias que mantuvieron a los comentaristas al borde de sus asientos, Daniel India logró imponerse tras 97 movimientos. \n\nLa partida comenzó con una Defensa Siciliana por parte de Daniel China, quien mostró una preparación impresionante en la apertura. Sin embargo, Daniel India sorprendió con una maniobra táctica en el medio juego que desestabilizó al oponente. 'Sabía que sería difícil, pero confié en mi intuición', comentó el campeón. La victoria consolida a Daniel India como una de las mayores figuras del ajedrez contemporáneo.",
           importancia: 5
         },
         {
           id: 1,
-          titulo: "Daniel Lengua inaugura la primera peluquería temática",
+          titulo: "¿Cómo saber si juego mejor que Daniel? La guía definitiva",
           imagen: "assets/danielfantasma.jpg",
-          copete: "Inspirada en sapos y mostachos, la peluquería de Daniel es un éxito en Playosa.",
+          copete: "Expertos desglosan las claves para identificar si puedes superar a Daniel en el tablero.",
           autor: "Carlos Mostacho",
           fecha: new Date("2024-10-30"),
-          cuerpo: "La nueva peluquería de Daniel Lengua combina un ambiente único inspirado en bigotes históricos y sapos, atrayendo a clientes de todas partes.",
-          importancia: 3
+          cuerpo: "Muchos jugadores de ajedrez se han preguntado alguna vez: ¿qué tan cerca estoy del nivel de Daniel? Esta guía, basada en el análisis de grandes maestros y psicólogos deportivos, te ayudará a responder esa pregunta. \n\nPrimero, evalúa tu nivel táctico: Daniel es conocido por detectar combinaciones brillantes en posiciones complejas. ¿Eres capaz de encontrar recursos similares en tus partidas? Segundo, analiza tu preparación en aperturas. Daniel dedica horas a estudiar las últimas innovaciones teóricas; si puedes anticiparte a las líneas que él utiliza, estás en buen camino. Por último, no olvides la fortaleza mental: Daniel ha demostrado una resiliencia increíble en momentos críticos, un aspecto clave que muchos jugadores pasan por alto.",
+          importancia: 4
         },
         {
           id: 2,
-          titulo: "Daniel Mostacho lanza queso artesanal",
+          titulo: "Daniel India publica su libro: 'El Arte de la Precisión en el Ajedrez'",
           imagen: "assets/danielTortuga.jpg",
-          copete: "El queso 'Lengua de Sapo' revoluciona la gastronomía local con su sabor único.",
+          copete: "Un análisis profundo de las partidas que lo llevaron al éxito.",
           autor: "Ana Playosa",
           fecha: new Date("2024-11-02"),
-          cuerpo: "El queso 'Lengua de Sapo' combina sabores tradicionales con un toque innovador, ganando rápidamente popularidad en la región.",
-          importancia: 4
+          cuerpo: "El Gran Maestro Daniel India ha lanzado su esperado libro 'El Arte de la Precisión en el Ajedrez', un compendio de sus mejores partidas y análisis detallados de sus decisiones estratégicas. El libro se divide en capítulos que exploran las diferentes fases del juego, desde aperturas innovadoras hasta finales precisos. \n\nEn una entrevista reciente, Daniel comentó: 'Este libro no es solo para jugadores avanzados, también quiero inspirar a los principiantes a entender la belleza del ajedrez'. Las primeras críticas han sido muy positivas, destacando la claridad con la que Daniel explica conceptos complejos. Sin duda, una lectura obligatoria para los amantes del ajedrez.",
+          importancia: 3
         },
         {
           id: 3,
-          titulo: "Trauma en Arquitectura: Daniel pierde el Megatone Challenge",
+          titulo: "Daniel China sorprende con una nueva apertura: 'La Defensa de Jade'",
           imagen: "assets/danielriestra.jpg",
-          copete: "Tras liderar, Daniel Lengua quedó fuera en la última ronda.",
+          copete: "Una línea revolucionaria promete cambiar el panorama competitivo.",
           autor: "Pedro Queso",
           fecha: new Date("2024-11-05"),
-          cuerpo: "Daniel Lengua lideró la mayor parte del Megatone Challenge, pero un error en la última ronda le costó la victoria.",
-          importancia: 2
+          cuerpo: "En un reciente torneo internacional, Daniel China presentó una apertura completamente nueva, a la que él mismo ha bautizado como 'La Defensa de Jade'. Esta línea, que combina elementos de la Defensa Francesa y el Sistema Londres, ha causado revuelo entre los analistas. \n\nDurante la partida inaugural, Daniel utilizó esta apertura para neutralizar rápidamente el ataque de un oponente fuerte, logrando una victoria aplastante en solo 25 movimientos. Los grandes maestros ya están estudiando esta defensa, mientras que las plataformas de ajedrez online reportan un aumento en su popularidad. 'Es solo el comienzo de algo grande', declaró Daniel.",
+          importancia: 4
         },
         {
           id: 4,
-          titulo: "Daniel Lengua y el misterio del sapo dorado",
+          titulo: "Daniel y la Inteligencia Artificial: el futuro del entrenamiento ajedrecístico",
           imagen: "assets/danielfantasma.jpg",
-          copete: "Una leyenda urbana que volvió loco a un grupo de arquitectos en Playosa.",
+          copete: "Una colaboración entre el genio humano y la máquina.",
           autor: "Marta Peluquería",
           fecha: new Date("2024-11-10"),
-          cuerpo: "El sapo dorado es una leyenda urbana que ha fascinado a generaciones. Daniel Lengua se sumergió en su búsqueda, capturando la imaginación de Playosa.",
+          cuerpo: "Daniel India ha dado un paso adelante en el entrenamiento ajedrecístico al colaborar con desarrolladores de inteligencia artificial para crear un software revolucionario. Este programa, denominado 'MindChess', no solo analiza partidas, sino que también sugiere planes estratégicos basados en el estilo del usuario. \n\n'La clave del éxito en el ajedrez moderno es adaptarse a los avances tecnológicos', afirmó Daniel en una conferencia de prensa. 'Con MindChess, cualquier jugador puede acceder a un entrenador de élite'. Los primeros resultados han sido prometedores, con usuarios reportando mejoras significativas en sus habilidades.",
           importancia: 5
         },
         {
-          id: 5,
-          titulo: "Peluquería de Daniel Lengua dona parte de sus ganancias",
-          imagen: "assets/danielNievas.jpg",
-          copete: "El dinero será destinado a víctimas del 'trauma del queso' en Megatone.",
-          autor: "Lucía Queso",
-          fecha: new Date("2024-11-15"),
-          cuerpo: "Daniel Lengua continúa mostrando su lado solidario al donar parte de las ganancias de su peluquería a una causa noble.",
-          importancia: 3
-        },
-        {
-          id: 6,
-          titulo: "El arquitecto Daniel y su bigote más famoso de Playosa",
-          imagen: "assets/caballopolichess.png",
-          copete: "Conocido como 'Mostacho de Oro', Daniel inspira a nuevas generaciones.",
-          autor: "Sofía Sapo",
-          fecha: new Date("2024-11-20"),
-          cuerpo: "El 'Mostacho de Oro' se ha convertido en un ícono de la cultura local, siendo fuente de inspiración para jóvenes arquitectos y estilistas.",
-          importancia: 2
-        },
-        {
-          id: 7,
-          titulo: "Lengua de Daniel: obra arquitectónica que desafía lo tradicional",
-          imagen: "assets/eloBlitz.png",
-          copete: "Una estructura en forma de lengua gigante se inaugura en el centro de Playosa.",
-          autor: "Pablo Megatone",
-          fecha: new Date("2024-11-25"),
-          cuerpo: "La obra 'Lengua de Daniel' desafía los límites de la arquitectura tradicional, mostrando creatividad y visión única.",
-          importancia: 4
-        },
-        {
-          id: 8,
-          titulo: "Daniel y el campeonato mundial de sapos",
-          imagen: "assets/EloRapido.png",
-          copete: "El 'Rey de los Sapos' lleva a su equipo a la gloria internacional.",
-          autor: "Marcos Peluquería",
-          fecha: new Date("2024-12-01"),
-          cuerpo: "El campeonato mundial de sapos vio al equipo de Daniel Lengua coronarse como los mejores del mundo, consolidando su legado.",
-          importancia: 1
-        },
-        {
-          id: 9,
-          titulo: "Daniel Megatone crea el primer museo del queso",
-          imagen: "assets/danielNievas.jpg",
-          copete: "Una obra maestra dedicada al queso y la arquitectura.",
-          autor: "Raúl Mostacho",
-          fecha: new Date("2024-12-05"),
-          cuerpo: "El museo del queso, diseñado por Daniel Megatone, ofrece una experiencia arquitectónica y gastronómica única.",
-          importancia: 3
-        },
-        {
-          id: 10,
-          titulo: "El trauma de Daniel: pierde su bigote en un partido de sapos",
-          imagen: "assets/danielfantasma.jpg",
-          copete: "Durante un juego de campeonato, Daniel sufrió el peor día de su vida.",
-          autor: "Francisco Playosa",
-          fecha: new Date("2024-12-10"),
-          cuerpo: "En un giro inesperado, Daniel perdió su icónico bigote durante un partido decisivo del campeonato de sapos.",
-          importancia: 2
-        },
-        {
-          id: 11,
-          titulo: "Daniel Lengua arrasa en el torneo de arquitectura con queso",
-          imagen: "assets/danielfantasma.jpg",
-          copete: "Una propuesta innovadora fusiona queso y diseño arquitectónico.",
-          autor: "Clara Megatone",
-          fecha: new Date("2024-12-15"),
-          cuerpo: "El torneo de arquitectura con queso vio a Daniel Lengua arrasar con su innovadora propuesta que combina estructuras comestibles con diseños modernos.",
-          importancia: 5
-        },
-        {
-          id: 12,
-          titulo: "El sapo gigante de Daniel Lengua sorprende a Playosa",
-          imagen: "assets/danielfantasma.jpg",
-          copete: "Una escultura gigante celebra la victoria en el mundial de sapos.",
-          autor: "Julia Queso",
-          fecha: new Date("2024-12-20"),
-          cuerpo: "La escultura del sapo gigante, creada por Daniel Lengua, se convirtió en una atracción turística en Playosa, celebrando el reciente campeonato mundial.",
-          importancia: 4
-        },
+              id: 5,
+              titulo: "Peluquería de Daniel Lengua dona parte de sus ganancias",
+              imagen: "assets/danielNievas.jpg",
+              copete: "El dinero será destinado a víctimas del 'trauma del queso' en Megatone.",
+              autor: "Lucía Queso",
+              fecha: new Date("2024-11-15"),
+              cuerpo: "Daniel Lengua continúa mostrando su lado solidario al donar parte de las ganancias de su peluquería a una causa noble. La iniciativa busca apoyar a las víctimas del llamado 'trauma del queso', un fenómeno psicológico que ha afectado a varios habitantes de Megatone. 'Es nuestra responsabilidad retribuir a la comunidad', comentó Daniel. La peluquería también ofrece descuentos especiales para quienes deseen contribuir directamente a la causa.",
+              importancia: 3
+            },
+            {
+              id: 6,
+              titulo: "El arquitecto Daniel y su bigote más famoso de Playosa",
+              imagen: "assets/caballopolichess.png",
+              copete: "Conocido como 'Mostacho de Oro', Daniel inspira a nuevas generaciones.",
+              autor: "Sofía Sapo",
+              fecha: new Date("2024-11-20"),
+              cuerpo: "El arquitecto Daniel, conocido localmente como el 'Mostacho de Oro', ha capturado la imaginación de Playosa con su carismático bigote y su legado arquitectónico. Su estilo único ha inspirado a jóvenes estudiantes de arquitectura, quienes ven en él un modelo de creatividad y perseverancia. En una reciente charla, Daniel expresó: 'Un bigote puede ser tan icónico como un edificio bien diseñado'.",
+              importancia: 2
+            },
+            {
+              id: 7,
+              titulo: "Lengua de Daniel: obra arquitectónica que desafía lo tradicional",
+              imagen: "assets/eloBlitz.png",
+              copete: "Una estructura en forma de lengua gigante se inaugura en el centro de Playosa.",
+              autor: "Pablo Megatone",
+              fecha: new Date("2024-11-25"),
+              cuerpo: "La 'Lengua de Daniel', una estructura arquitectónica en forma de lengua gigante, fue inaugurada en el centro de Playosa, causando asombro y admiración. Diseñada para simbolizar la conexión entre la comunicación y la creatividad, la obra combina materiales innovadores con técnicas tradicionales. 'Quise crear algo que hablara por sí mismo', explicó Daniel durante la ceremonia de inauguración, que atrajo a miles de visitantes.",
+              importancia: 4
+            },
+            {
+              id: 8,
+              titulo: "Daniel y el campeonato mundial de sapos",
+              imagen: "assets/EloRapido.png",
+              copete: "El 'Rey de los Sapos' lleva a su equipo a la gloria internacional.",
+              autor: "Marcos Peluquería",
+              fecha: new Date("2024-12-01"),
+              cuerpo: "El campeonato mundial de sapos vivió un momento histórico con la victoria del equipo liderado por Daniel Lengua, apodado el 'Rey de los Sapos'. Con una precisión casi matemática, Daniel lideró a su equipo hacia la victoria en la final, superando a oponentes de todo el mundo. 'Este logro es el resultado de años de práctica y pasión', declaró emocionado tras recibir el trofeo.",
+              importancia: 1
+            },
+            {
+              id: 9,
+              titulo: "Daniel Megatone crea el primer museo del queso",
+              imagen: "assets/danielNievas.jpg",
+              copete: "Una obra maestra dedicada al queso y la arquitectura.",
+              autor: "Raúl Mostacho",
+              fecha: new Date("2024-12-05"),
+              cuerpo: "El primer museo del queso, diseñado por Daniel Megatone, abrió sus puertas en Playosa. La obra combina elementos arquitectónicos vanguardistas con una exhibición interactiva que explora la historia y la cultura del queso. 'Quería crear un espacio donde el queso fuera el protagonista, tanto en sabor como en diseño', explicó Daniel. El museo ya se perfila como una de las atracciones más populares de la región.",
+              importancia: 3
+            },
+            {
+              id: 10,
+              titulo: "El trauma de Daniel: pierde su bigote en un partido de sapos",
+              imagen: "assets/danielfantasma.jpg",
+              copete: "Durante un juego de campeonato, Daniel sufrió el peor día de su vida.",
+              autor: "Francisco Playosa",
+              fecha: new Date("2024-12-10"),
+              cuerpo: "Un inesperado accidente durante la final del campeonato de sapos dejó a Daniel sin su icónico bigote, lo que muchos describen como 'el peor día de su vida'. Según testigos, un mal movimiento lo llevó a acercarse demasiado a una llama de celebración, quemando parte de su bigote. 'Es solo pelo, pero duele', bromeó Daniel, aunque su expresión reflejaba tristeza.",
+              importancia: 2
+            },
+            {
+              id: 11,
+              titulo: "Daniel Lengua arrasa en el torneo de arquitectura con queso",
+              imagen: "assets/danielfantasma.jpg",
+              copete: "Una propuesta innovadora fusiona queso y diseño arquitectónico.",
+              autor: "Clara Megatone",
+              fecha: new Date("2024-12-15"),
+              cuerpo: "Daniel Lengua impresionó a los jueces en el torneo de arquitectura con queso al presentar una estructura comestible que combinaba diseño moderno con funcionalidad culinaria. Su obra, una torre de queso fundido reforzada con pan crujiente, fue descrita como 'una maravilla efímera'. 'Quise demostrar que la arquitectura puede ser saboreada, no solo admirada', dijo Daniel al recibir el premio principal.",
+              importancia: 5
+            },
+            {
+              id: 12,
+              titulo: "El sapo gigante de Daniel Lengua sorprende a Playosa",
+              imagen: "assets/danielfantasma.jpg",
+              copete: "Una escultura gigante celebra la victoria en el mundial de sapos.",
+              autor: "Julia Queso",
+              fecha: new Date("2024-12-20"),
+              cuerpo: "La escultura del sapo gigante, creada por Daniel Lengua, se erige como un homenaje a la victoria en el campeonato mundial de sapos. Ubicada en el centro de Playosa, la obra ha atraído a turistas y locales por igual. 'Quise capturar la esencia de nuestro triunfo en una forma tangible', comentó Daniel. La escultura también cuenta con una placa conmemorativa dedicada a los miembros del equipo campeón.",
+              importancia: 4
+            },
+          
+        
+        
         {
           id: 13,
           titulo: "Peluquería Mostacho de Daniel revoluciona Megatone",

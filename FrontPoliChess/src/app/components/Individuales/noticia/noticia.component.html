@@ -1,20 +1,12 @@
-<div *ngIf="noticia" class="noticia-container">
-  <div class="noticia-card">
-    <!-- Título y copete -->
-    <h2>{{ noticia.titulo }}</h2>
-    <img [src]="noticia.imagen" alt="Imagen de {{ noticia.titulo }}" class="noticia-imagen">
-
-    <!-- Información básica -->
-    <div class="noticia-info">
-      <h4><strong>Publicado por:</strong> {{ noticia.autor }}</h4>
-      <h4><strong>Fecha de publicación:</strong> {{ noticia.fecha | date: 'dd/MM/yyyy' }}</h4>
-      <h4><strong>Resumen:</strong> {{ noticia.copete }}</h4>
-    </div>
-
-    <!-- Cuerpo de la noticia -->
-    <div class="noticia-cuerpo">
-      <h3>Contenido de la noticia</h3>
-      <p>{{ noticia.cuerpo }}</p>
-    </div>
+<div class ="todo">
+<div class="noticia-container">
+  <h1 class="noticia-titulo">{{ noticia?.titulo }}</h1>
+  <img [src]="noticia?.imagen" alt="{{ noticia?.titulo }}" class="noticia-imagen">
+  <div class="noticia-detalles">
+    <span class="noticia-autor">Por: {{ noticia?.autor }}</span>
+    <span class="noticia-fecha">{{ noticia?.fecha | date:'fullDate' }}</span>
   </div>
+  <p class="noticia-copete">{{ noticia?.copete }}</p>
+  <div class="noticia-cuerpo">{{ noticia?.cuerpo }}</div>
+</div>
 </div>
