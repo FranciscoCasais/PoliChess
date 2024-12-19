@@ -3,11 +3,12 @@ import { ActivatedRoute } from '@angular/router';
 import { TorneoService } from '../../../../services/torneo.service'; // Ajusta según tu estructura
 import { Torneo } from '../../../../models/torneo.model'; // Ajusta según tu estructura
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router'; // Asegúrate de tener esto importado
 
 @Component({
   selector: 'app-torneo',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,RouterModule],
   templateUrl: './torneo.component.html',
   styleUrl: './torneo.component.css'
 })

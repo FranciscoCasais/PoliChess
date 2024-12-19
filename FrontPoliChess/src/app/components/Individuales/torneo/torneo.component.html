@@ -12,6 +12,7 @@
         </h4> <!-- no se pq muestra fecha + 1 dia --> 
         <h4>Descripción:</h4>
         <p>{{ torneo.descripcion || 'Sin descripción disponible.' }}</p>
+        <button [routerLink]="['/detalles-torneo', torneo.id]">Ver detalles</button>
         
         <!-- 
         <h4>Ganador:</h4>

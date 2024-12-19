@@ -9,6 +9,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule} from '@angular/router';
 import { TorneoComponent } from './components/Individuales/torneo/torneo.component';
 import { NoticiaComponent } from './components/Individuales/noticia/noticia.component';
+import { DetallesTorneoComponent } from './components/Individuales/detalles-torneo/detalles-torneo.component';
 export const routes: Routes = [
     {
         path: "",
@@ -46,6 +47,10 @@ export const routes: Routes = [
     {
         path: "noticia/:id",
         component: NoticiaComponent
+    },
+    {
+        path: "detalles-torneo/:id",
+        component: DetallesTorneoComponent
     },
     
 ];
