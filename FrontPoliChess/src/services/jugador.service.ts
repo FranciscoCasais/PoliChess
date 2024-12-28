@@ -232,6 +232,39 @@ export class JugadorService {
         eloRapido: 1,
         foto: "assets/desi.jpg",
         nombreDeUsuario: "desialtoboludojj"
+      },
+      {
+        id: 21,
+        nombre: "UsuarioPrueba1235",
+        apellido: "",
+        fechaDeNacimiento: new Date("2005-10-11"),
+        eloStandard: 0,
+        eloBlitz: 0,
+        eloRapido: 0,
+        foto: "assets/desi.jpg",
+        nombreDeUsuario: "desialtoboludojj"
+      },
+      {
+        id: 22,
+        nombre: "UsuarioPrueba1234",
+        apellido: "",
+        fechaDeNacimiento: new Date("2005-10-11"),
+        eloStandard: 0,
+        eloBlitz: 0,
+        eloRapido: 0,
+        foto: "assets/desi.jpg",
+        nombreDeUsuario: "desialtoboludojj"
+      },
+      {
+        id: 23,
+        nombre: "UsuarioPrueba12",
+        apellido: "",
+        fechaDeNacimiento: new Date("2005-10-11"),
+        eloStandard: 0,
+        eloBlitz: 0,
+        eloRapido: 0,
+        foto: "assets/desi.jpg",
+        nombreDeUsuario: "desialtoboludojj"
       }
     ];
     

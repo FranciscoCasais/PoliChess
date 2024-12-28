@@ -17,6 +17,10 @@ export class SeccionNoticiasComponent implements OnInit {
   protected noticias: Noticia[] = [];
   protected noticiasFiltradas: Noticia[] = [];
   protected busquedaTitulo: string = '';
+  
+  // Paginación
+  protected paginaActual: number = 1;
+  protected noticiasPorPagina: number = 5;
 
   constructor(
     private noticiaService: NoticiaService,
@@ -48,5 +52,31 @@ export class SeccionNoticiasComponent implements OnInit {
     this.noticiasFiltradas = this.noticias.filter((noticia) =>
       noticia.titulo.toLowerCase().includes(tituloBusqueda)
     );
+    this.paginaActual = 1;  // Reiniciar a la primera página cuando se haga una búsqueda
+  }
+
+  /**
+   * Obtiene el total de páginas basado en las noticias filtradas y la cantidad por página.
+   */
+  get totalPaginas(): number {
+    return Math.ceil(this.noticiasFiltradas.length / this.noticiasPorPagina);
+  }
+
+  /**
+   * Función para ir a la siguiente página
+   */
+  irPaginaSiguiente(): void {
+    if (this.paginaActual < this.totalPaginas) {
+      this.paginaActual++;
+    }
+  }
+
+  /**
+   * Función para ir a la página anterior
+   */
+  irPaginaAnterior(): void {
+    if (this.paginaActual > 1) {
+      this.paginaActual--;
+    }
   }
 }

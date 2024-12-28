@@ -124,4 +124,40 @@
     color: inherit;
     pointer-events: all;
   }
+
+  .paginacion {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Alineación vertical */
+    margin-top: 20px;
+  }
+  
+  /* Alineación del texto "Página X de X" */
+  .paginacion .pagina-texto {
+    margin: 0 15px; /* Espaciado entre los botones y el texto */
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  /* Estilos de los botones de paginación */
+  .paginacion button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    background-color: #888; /* Gris base */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+  }
+  
+  .paginacion button:disabled {
+    background-color: #d1d1d1; /* Gris más claro para el botón deshabilitado */
+    cursor: not-allowed;
+  }
+  
+  .paginacion button:hover {
+    background-color: #666; /* Gris más oscuro al pasar el ratón */
+  }
   

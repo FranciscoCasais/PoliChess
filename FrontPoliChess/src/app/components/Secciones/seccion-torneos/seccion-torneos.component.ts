@@ -20,6 +20,10 @@ export class SeccionTorneosComponent implements OnInit {
   protected filtroEstado: string = 'todos'; // Filtro por estado
   protected filtroRitmo: string = 'todos'; // Filtro por ritmo
 
+  // Variables para paginación
+  protected paginaActual: number = 1;
+  protected torneosPorPagina: number = 10;  // Número de torneos por página
+
   constructor(
     private torneoService: TorneoService,
     private router: Router
@@ -28,8 +32,8 @@ export class SeccionTorneosComponent implements OnInit {
   ngOnInit(): void {
     this.torneos = this.torneoService.obtenerTorneos();
     this.actualizarEstadoTorneos();
-    this.torneosFiltrados = [...this.torneos]; // Inicializa torneosFiltrados con una copia de todos los torneos
-    this.filtrarTorneos(); // Aplica los filtros por estado y ritmo al inicio
+    this.torneosFiltrados = [...this.torneos];
+    this.filtrarTorneos(); 
     this.ordenarTorneosPorFecha(); // Ordena los torneos por fecha
   }
 
@@ -41,9 +45,9 @@ export class SeccionTorneosComponent implements OnInit {
       torneo.nombre.toLowerCase().includes(nombreBusqueda)
     );
     
-    // Luego aplicamos los filtros por estado y ritmo sobre los resultados filtrados por nombre
-    this.filtrarTorneos(); // Aplica los filtros por estado y ritmo
-    this.ordenarTorneosPorFecha(); // Vuelve a ordenar los torneos filtrados
+
+    this.filtrarTorneos(); 
+    this.ordenarTorneosPorFecha();
   }
 
   // Función para filtrar torneos por estado
@@ -51,24 +55,24 @@ export class SeccionTorneosComponent implements OnInit {
     if (event) {
       this.filtroEstado = event.target.value;
     }
-    this.filtrarTorneos(); // Aplica los filtros por estado y ritmo
-    this.ordenarTorneosPorFecha(); // Vuelve a ordenar los torneos filtrados
+    this.filtrarTorneos();
+    this.ordenarTorneosPorFecha();
   }
 
-  // Función para filtrar torneos por ritmo
+
   filtrarTorneosPorRitmo(): void {
-    this.filtrarTorneos(); // Aplica los filtros por estado y ritmo
-    this.ordenarTorneosPorFecha(); // Vuelve a ordenar los torneos filtrados
+    this.filtrarTorneos(); 
+    this.ordenarTorneosPorFecha(); 
   }
 
-  // Función general que combina filtros por estado, ritmo y nombre
+
   private filtrarTorneos(): void {
     this.torneosFiltrados = this.torneos.filter(torneo => {
       const coincideEstado = this.filtroEstado === 'todos' || torneo.estado === this.filtroEstado;
       const coincideRitmo = this.filtroRitmo === 'todos' || torneo.ritmo.toLowerCase() === this.filtroRitmo;
       const coincideNombre = this.busquedaNombre === '' || torneo.nombre.toLowerCase().includes(this.busquedaNombre.toLowerCase());
 
-      return coincideEstado && coincideRitmo && coincideNombre; // Combina todos los filtros
+      return coincideEstado && coincideRitmo && coincideNombre; 
     });
   }
 
@@ -113,12 +117,11 @@ export class SeccionTorneosComponent implements OnInit {
   ordenarTorneosPorFecha(): void {
     const fechaActual = new Date();
 
-    // Primero, separamos los torneos por estado
     const enCurso = this.torneosFiltrados.filter(torneo => torneo.estado === 'en_curso');
     const pendientes = this.torneosFiltrados.filter(torneo => torneo.estado === 'pendiente');
     const finalizados = this.torneosFiltrados.filter(torneo => torneo.estado === 'finalizado');
 
-    // Ordenamos por fecha más cercana a hoy dentro de cada grupo
+   
     const ordenarPorFecha = (a: Torneo, b: Torneo) => {
       const fechaA = new Date(a.fecha);
       const fechaB = new Date(b.fecha);
@@ -129,7 +132,34 @@ export class SeccionTorneosComponent implements OnInit {
     pendientes.sort(ordenarPorFecha);
     finalizados.sort(ordenarPorFecha);
 
-    // Combinamos los grupos en el orden correcto
+    
     this.torneosFiltrados = [...enCurso, ...pendientes, ...finalizados];
   }
+
+
+  getTorneosPaginaActual(): Torneo[] {
+    const inicio = (this.paginaActual - 1) * this.torneosPorPagina;
+    const fin = this.paginaActual * this.torneosPorPagina;
+    return this.torneosFiltrados.slice(inicio, fin);
+  }
+
+
+  irPaginaSiguiente(): void {
+    if (this.paginaActual < this.totalPaginas) {
+      this.paginaActual++;
+    }
+  }
+  
+  irPaginaAnterior(): void {
+    if (this.paginaActual > 1) {
+      this.paginaActual--;
+    }
+  }
+  
+
+
+  get totalPaginas(): number {
+    return Math.ceil(this.torneosFiltrados.length / this.torneosPorPagina);
+  }
+  
 }
